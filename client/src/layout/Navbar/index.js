@@ -12,7 +12,8 @@ const Navbar = () => {
   }
   let menu;
   const username = useSelector(state => state.username)
-  if (username === '') {
+  if (username === '' || username === undefined) {
+    console.log(`username: ${username}`)
     menu = (
       <>
         <NavLink to="/">Home</NavLink>
@@ -21,9 +22,9 @@ const Navbar = () => {
       </>
     )
   } else {
+    console.log(`username verified: ${username}`)
     menu = (
       <>
-        <h3>Welcome {username}</h3>
         <NavLink to="/">Home</NavLink>
         <NavLink to='/login' onClick={handleClick}>Logout</NavLink>
       </>
