@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-const Header = () => {
+const Navbar = () => {
   const dispatch = useDispatch()
   const handleClick = () => {
     localStorage.clear()
@@ -23,7 +23,8 @@ const Header = () => {
   } else {
     menu = (
       <>
-        <NavLink to="/auth">Home</NavLink>
+        <h3>Welcome {username}</h3>
+        <NavLink to="/">Home</NavLink>
         <NavLink to='/login' onClick={handleClick}>Logout</NavLink>
       </>
     )
@@ -35,4 +36,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Navbar;

@@ -3,13 +3,13 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Header from './layout/Header';
+import Navbar from './layout/Navbar';
 import TestAuth from './pages/TestAuth';
 
 function App() {
   return (
     <>
-      <Header/>
+      <Navbar/>
       <Routes>
         <Route exact path='/' element={<Home/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
