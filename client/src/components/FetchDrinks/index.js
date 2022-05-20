@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import './style.css'
 
-const FetchApi = () => {
+const FetchApi = (url) => {
     const [data, setData] = useState([]);
+    url = 'https://www.thecocktaildb.com/api/json/v2/9973533/popular.php'
 
     const fetchDrinks = async () => {
-        const response = await fetch('https://www.thecocktaildb.com/api/json/v2/9973533/popular.php')
+        const response = await fetch(url)
         const result = await response.json()
         // console.log(result)
         setData(result.drinks)
@@ -31,9 +32,6 @@ const FetchApi = () => {
         let measuresArray = Object.entries(drink)
         const mesFilter = measuresArray.filter(x => x[0].includes('strMeasure') && x[1] !== null)
         console.log(mesFilter)
-        
-
-
 
         return ( 
            <div className="drink-card">              
