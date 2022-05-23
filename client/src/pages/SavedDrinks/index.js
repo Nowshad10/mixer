@@ -48,21 +48,6 @@ const SavedDrinks = () => {
       
   }
 
-//   useEffect(() => {
-//       (
-//         async () => {
-//             let username = localStorage.getItem('username')
-//             const response = await fetch(`http://localhost:8000/drinks/${username}/`)
-//             const savedDrinks = await response.json()
-//             console.log(savedDrinks)
-//             setDrinkData([...drinkData, savedDrinks])
-//             console.log(drinkData)
-//         }
-//       )
-//       ()
-//   }, [])
-
-//   const drinkIdUrl = `https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=`
     
   return (
     <>
@@ -74,25 +59,6 @@ const SavedDrinks = () => {
         </form>
 
         <UsersDrinks/>
-        {/* { drinkData && drinkData.map((item) => {
-            let url = drinkIdUrl + item.id_drink
-            console.log(`url: ${url}`)
-            fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                console.log('data')
-                return(
-                <div>
-                    <img src='#' alt='drink-img'/>
-                    <div>
-                        <h4>{data.strDrink}</h4>
-                    </div>
-                </div>
-                )
-            })
-            
-            
-        })} */}
         
     </>
   )
