@@ -20,17 +20,26 @@ const Login = () => {
     const token = await responseToken.json()
     localStorage.setItem('jwt', token.jwt)
 
-    const responseAuth = await fetch('http://localhost:8000/api/auth/', {
-      method: 'POST',
-      body: JSON.stringify({ token: token.jwt }),
-      headers: {'Content-Type': 'application/json'}
-    })
-    const content = await responseAuth.json()
-    dispatch({
+    if(token.jwt) {
+      const responseAuth = await fetch('http://localhost:8000/api/auth/', {
+        method: 'POST',
+        body: JSON.stringify({ token: token.jwt }),
+        headers: {'Content-Type': 'application/json'}
+      })
+      const content = await responseAuth.json()
+      localStorage.setItem('username', content.username)
+      dispatch({
         type: "SET_USERNAME",
         value: content.username
-    })
-    setRedirect(true)
+      })
+      setRedirect(true)
+    }
+    // else if (token.detail) {
+    //   alert('Incorrect username/password')
+    // }
+    else {
+      alert('Incorrect username/password')
+    }
   }
 
   if (redirect) {
@@ -42,10 +51,10 @@ const Login = () => {
     <>
         <form onSubmit={handleSubmit}>
             <label htmlFor='username'>Enter Username</label>
-            <input type="text" id="username" name="username" onChange={(e) => setUsername(e.target.value)}></input>
+            <input required type="text" id="username" name="username" onChange={(e) => setUsername(e.target.value)}></input>
 
             <label htmlFor='password'>Enter Password</label>
-            <input type="password" id='password' name='password' onChange={(e) => setPassword(e.target.value)}></input>
+            <input required type="password" id='password' name='password' onChange={(e) => setPassword(e.target.value)}></input>
 
             <input type="submit" value="sign in!"></input>
         </form>

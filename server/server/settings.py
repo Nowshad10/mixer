@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure--vanurh0d6y*a=1-bv82g#+b4k$(&*tklxp14re0($mm3-y9_-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'http://localhost:3000']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000','https://*.127.0.0.1']
 
 
 # Application definition
@@ -34,6 +35,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 INSTALLED_APPS = [
     'users.apps.UsersConfig',
+    'drinks.apps.DrinksConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
