@@ -7,13 +7,17 @@ from rest_framework.views import APIView
 from django.contrib.auth.models import User
 from rest_framework.response import Response
 from rest_framework import status
+from django.contrib import auth
 import jwt, datetime
 from rest_framework.exceptions import AuthenticationFailed
-
+from rest_framework import permissions
 from .serializers import UserRegistrationSerializer
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import ensure_csrf_cookie, csrf_protect
 
 
 class UserRegistrationView(APIView):
+    permission_classes = (permissions.AllowAny, )
     def post(self, request, format=None):
         serializer = UserRegistrationSerializer(data=request.data)
         if serializer.is_valid():
@@ -23,6 +27,7 @@ class UserRegistrationView(APIView):
 
 
 class LoginView(APIView):
+    permission_classes = (permissions.AllowAny, )
     def post(self, request):
         username = request.data['username']
         password = request.data['password']
@@ -30,26 +35,48 @@ class LoginView(APIView):
         found_user = User.objects.filter(username = username).first()
 
         if found_user is None:
-            raise AuthenticationFailed('User not found')
+            raise AuthenticationFailed('User could not be found')
         
         if not found_user.check_password(password):
             raise AuthenticationFailed('Incorrect Password!')
+        
+        try:
+            user = auth.authenticate(username=username, password=password)
 
-        payload = {
-            'id': found_user.id,
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
-            'iat': datetime.datetime.utcnow()
-        }
-        token = jwt.encode(payload, 'secret', algorithm='HS256')
+            if user is not None:
+                payload = {
+                    'id': found_user.id,
+                    'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
+                    'iat': datetime.datetime.utcnow()
+                }
+                token = jwt.encode(payload, 'secret', algorithm='HS256')
+                response = Response()
+                response.data = {
+                    'jwt': token
+                }
+                auth.login(request, user)
+                return response
+            else:
+                return Response({'error': 'Error authenticating!' })
+        except:
+            return Response({ 'error': 'Could not log in'})
 
-        response = Response()
+        # payload = {
+        #     'id': found_user.id,
+        #     'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
+        #     'iat': datetime.datetime.utcnow()
+        # }
+        # token = jwt.encode(payload, 'secret', algorithm='HS256')
 
-        response.data = {
-            'jwt': token
-        }
-        return response
+        # response = Response()
 
-class UserView(APIView):    
+        # response.data = {
+        #     'jwt': token
+        # }
+        # return response
+
+class UserView(APIView):
+    permission_classes = (permissions.AllowAny, )  
     def post(self, request):
         if request.data == {}: 
             raise AuthenticationFailed('Unauthenticated')  
@@ -64,9 +91,14 @@ class UserView(APIView):
 
 class LogoutView(APIView):
     def post(self, request):
-        response = Response()
-        response.delete_cookie('jwt')
-        response.data= {
-            "message": "success"
-        }
-        return response
+        try:
+            auth.logout(request)
+            return Response({ 'success': 'Logged Out' })
+        except:
+            return Response({ 'error': 'Error logging out.'})
+        # response = Response()
+        # response.delete_cookie('jwt')
+        # response.data= {
+        #     "message": "success"
+        # }
+        # return response

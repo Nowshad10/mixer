@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const TestAuth = () => {
     const navigate = useNavigate()
+    let username = localStorage.getItem('username')
 
     useEffect(() => {
         (
@@ -29,7 +30,9 @@ const TestAuth = () => {
         ()
     }, [])
   return (
-    <div>TestAuth</div>
+    <>
+        <h2>Welcome {username}!</h2>
+    </>
   )
 }
 

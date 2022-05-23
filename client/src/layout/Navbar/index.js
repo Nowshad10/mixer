@@ -9,29 +9,38 @@ const Navbar = () => {
     dispatch({
       type: 'RESET'
     })
+    window.location.reload()
   }
-  let menu;
-  const username = useSelector(state => state.username)
-  if (username === '') {
-    menu = (
+  let navigation;
+  let username;
+  const usernameRedux = useSelector(state => state.username)
+  if (usernameRedux) {
+    username = usernameRedux
+  } else {
+    username = localStorage.getItem('username')
+  }
+
+  if (username === null || username === '' || username === undefined) {
+    navigation = (
       <>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/register">Register</NavLink>
         <NavLink to="/login">Login</NavLink>
       </>
     )
-  } else {
-    menu = (
+  } else if (username) {
+    console.log(`username verified: ${username}`)
+    navigation = (
       <>
-        <h3>Welcome {username}</h3>
         <NavLink to="/">Home</NavLink>
         <NavLink to='/login' onClick={handleClick}>Logout</NavLink>
+        <NavLink to="/saved-drinks">Your Saved Drinks</NavLink>
       </>
     )
   }
   return (
     <nav>
-        {menu}
+        {navigation}
     </nav>
   )
 }

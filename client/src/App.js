@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Navbar from './layout/Navbar';
 import TestAuth from './pages/TestAuth';
+import SavedDrinks from './pages/SavedDrinks';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/register' element={<Register/>}></Route>
         <Route path='/auth' element={<TestAuth/>}></Route>
+        <Route path='/saved-drinks' element={<SavedDrinks/>}></Route>
       </Routes>
     </>
   );
