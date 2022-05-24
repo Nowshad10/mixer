@@ -8,6 +8,7 @@ import TestAuth from './pages/TestAuth';
 import SavedDrinks from './pages/SavedDrinks';
 import SingleDrink from './pages/SingleDrink';
 import PopularDrinks from './pages/PopularDrinks';
+import SearchByName from './pages/SearchByName';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path='/saved-drinks' element={<SavedDrinks/>}></Route>
         <Route path='/popular' element={<PopularDrinks/>}></Route>
         <Route path='/drink-info/:id' element={<SingleDrink/>}></Route>
+        <Route path='/searchbyname' element={<SearchByName/>}/>
       </Routes>
     </>
   );
