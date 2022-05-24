@@ -59,9 +59,7 @@ const FetchApi = (url) => {
                             <p className="right">{mes[1]}</p>
                         )
                     })}
-                </div>
-                       
-                                                     
+                </div>                                                    
                 </div>  
             </div>
         )

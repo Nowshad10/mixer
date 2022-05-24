@@ -5,7 +5,7 @@ import MultiSearch from './components/MultiSearch';
 function App() {
   return (
     <div className='App'>
-      <FetchApi />
+     {/*  <FetchApi /> */}
       <MultiSearch />
     </div>
   );
