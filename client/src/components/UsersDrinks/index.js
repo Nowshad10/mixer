@@ -1,5 +1,6 @@
 import React from 'react';
 import './style.css';
+import { Link } from 'react-router-dom';
 
 const UsersDrinks = ({drinks}) => {
 
@@ -10,6 +11,7 @@ const UsersDrinks = ({drinks}) => {
        drinks.map((item) => {
          return (
            <div className='card-container'>
+             <Link to={`/drink-info/${item.id_drink}`}>
              <div className='image-container'>
                <img src={item.drink_image} alt={item.drink_name}/>
              </div>
@@ -22,6 +24,7 @@ const UsersDrinks = ({drinks}) => {
                  <p>{item.drink_instructions}</p>
                </div>
              </div>
+             </Link>
            </div>
          )
        })
