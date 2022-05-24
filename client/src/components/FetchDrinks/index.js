@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import './style.css'
+import './style.css';
+import { Link } from 'react-router-dom';
 
 const FetchApi = (url) => {
     const [data, setData] = useState([]);
@@ -22,7 +23,7 @@ const FetchApi = (url) => {
   return(
     data.map(drink => {
 
-        const {strDrink, strDrinkThumb, strGlass, strAlcoholic, strInstructions} = drink
+        const {idDrink, strDrink, strDrinkThumb, strGlass, strAlcoholic, strInstructions} = drink
 
         // Gather the ingredients for each drink
         const ingArray = Object.entries(drink)
@@ -36,31 +37,13 @@ const FetchApi = (url) => {
             //console.log(mesFilter)
 
         return ( 
-           <div className="drink-card">              
+           <div className="drink-card">
+               <Link to={`/drink-info/${idDrink}`}>         
                 <div className="drink-img">
                     <h2>{strDrink}</h2>
                     <img src={strDrinkThumb} alt={strDrink} className="drink-thumb"/>
                 </div>
-                <div className="drink-info">
-                    <p>{strGlass}</p>
-                    <p>{strAlcoholic}</p>
-                    <p>{strInstructions}</p>
-
-                <div className="grid">
-                    {ingFilter.map(ing => {
-                            return (
-                                <p className="left">{ing[1]}</p>
-                                
-                            )
-                        })}
-
-                    {mesFilter.map(mes => {
-                        return (
-                            <p className="right">{mes[1]}</p>
-                        )
-                    })}
-                </div>                                                    
-                </div>  
+                </Link>
             </div>
         )
     })

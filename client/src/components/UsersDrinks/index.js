@@ -19,10 +19,9 @@ const UsersDrinks = ({drinks}) => {
                <div className='card-title'>
                  <h3>{item.drink_name}</h3>
                </div>
-               <hr/>
-               <div className='card-body'>
+               {/* <div className='card-body'>
                  <p>{item.drink_instructions}</p>
-               </div>
+               </div> */}
              </div>
              </Link>
            </div>

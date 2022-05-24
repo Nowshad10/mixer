@@ -38,18 +38,18 @@ const SavedDrinks = () => {
         ()
     }, [])
     
-  const handleSubmitDrink = async (e) => {
-      e.preventDefault()
-      let username = localStorage.getItem('username')
-      const options = {
-          method: 'POST',
-          body: JSON.stringify({id_drink: id, username: username, drink_name: drinkName, drink_image: drinkImage, drink_instructions: drinkInstructions}),
-          headers: {'Content-Type': 'application/json'}, withCredentials: true
-      }
-      await fetch(`http://localhost:8000/drinks/${username}/`, options)
-      e.target.drinkId.value = ""
+//   const handleSubmitDrink = async (e) => {
+//       e.preventDefault()
+//       let username = localStorage.getItem('username')
+//       const options = {
+//           method: 'POST',
+//           body: JSON.stringify({id_drink: id, username: username, drink_name: drinkName, drink_image: drinkImage, drink_instructions: drinkInstructions}),
+//           headers: {'Content-Type': 'application/json'}, withCredentials: true
+//       }
+//       await fetch(`http://localhost:8000/drinks/${username}/`, options)
+//       e.target.drinkId.value = ""
       
-  }
+//   }
 
   useEffect(() => {
     let username = localStorage.getItem('username')
@@ -63,7 +63,7 @@ const SavedDrinks = () => {
     
   return (
     <>
-        <form onSubmit={handleSubmitDrink}>
+        {/* <form onSubmit={handleSubmitDrink}>
             <label htmlFor='drinkId'>Drink ID</label>
             <input name='drinkId' type='number' id='drinkId' onChange={(e) => setId(e.target.value)}/>
 
@@ -79,7 +79,7 @@ const SavedDrinks = () => {
 
 
             <input type='submit' value='Save Drink'/>
-        </form>
+        </form> */}
 
         { data && <UsersDrinks drinks={data}/> }
         
