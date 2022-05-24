@@ -26,6 +26,7 @@ const Navbar = () => {
     navigation = (
       <>
         <NavLink to="/">Home</NavLink>
+        <NavLink to='/searchbyname'>Search By Name</NavLink>
         <NavLink to="/popular">Popular Drinks</NavLink>
         <NavLink to="/register">Register</NavLink>
         <NavLink to="/login">Login</NavLink>
@@ -39,6 +40,7 @@ const Navbar = () => {
         <NavLink to='/login' onClick={handleClick}>Logout</NavLink>
         <NavLink to="/saved-drinks">Your Saved Drinks</NavLink>
         <NavLink to="/popular">Popular Drinks</NavLink>
+        <NavLink to='/searchbyname'>Search By Name</NavLink>
       </>
     )
   }
