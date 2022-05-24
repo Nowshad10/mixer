@@ -6,6 +6,8 @@ import Register from './pages/Register';
 import Navbar from './layout/Navbar';
 import TestAuth from './pages/TestAuth';
 import SavedDrinks from './pages/SavedDrinks';
+import SingleDrink from './pages/SingleDrink';
+import PopularDrinks from './pages/PopularDrinks';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path='/register' element={<Register/>}></Route>
         <Route path='/auth' element={<TestAuth/>}></Route>
         <Route path='/saved-drinks' element={<SavedDrinks/>}></Route>
+        <Route path='/popular' element={<PopularDrinks/>}></Route>
+        <Route path='/drink-info/:id' element={<SingleDrink/>}></Route>
       </Routes>
     </>
   );

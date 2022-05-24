@@ -3,7 +3,7 @@ body {
     padding: 0;
     background: linear-gradient(120deg, #e07ec1, #d20651);
     height: 100vh;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .center {
