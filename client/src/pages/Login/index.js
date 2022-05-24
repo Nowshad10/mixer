@@ -35,9 +35,6 @@ const Login = () => {
       })
       setRedirect(true)
     }
-    // else if (token.detail) {
-    //   alert('Incorrect username/password')
-    // }
     else {
       alert('Incorrect username/password')
     }
@@ -50,30 +47,20 @@ const Login = () => {
 
   return (
     <>
-        {/* <form onSubmit={handleSubmit}>
-            <label htmlFor='username'>Enter Username</label>
-            <input required type="text" id="username" name="username" onChange={(e) => setUsername(e.target.value)}></input>
-
-            <label htmlFor='password'>Enter Password</label>
-            <input required type="password" id='password' name='password' onChange={(e) => setPassword(e.target.value)}></input>
-
-            <input type="submit" value="sign in!"></input>
-        </form> */}
-
         <div className='center'>
           <h1>Login</h1>
-          <form>
+          <form onSubmit={handleSubmit}>
 
             <div className='txt_field'>
-              <input type='text' name='username' required/>
+              <input id='username' onChange={(e) => setUsername(e.target.value)} type='text' name='username' required/>
               <span></span>
-              <label>Username</label>
+              <label htmlFor='username'>Username</label>
             </div>
 
             <div className='txt_field'>
-              <input type='password' name='password' required/>
+              <input id='password' onChange={(e) => setPassword(e.target.value)} type='password' name='password' required/>
               <span></span>
-              <label>Password</label>
+              <label htmlFor='password'>Password</label>
             </div>
 
             <input id='login-btn' type='submit' value='Login'></input>
