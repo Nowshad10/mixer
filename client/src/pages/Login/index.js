@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import './style.css';
 
 const Login = () => {
 
@@ -49,7 +50,7 @@ const Login = () => {
 
   return (
     <>
-        <form onSubmit={handleSubmit}>
+        {/* <form onSubmit={handleSubmit}>
             <label htmlFor='username'>Enter Username</label>
             <input required type="text" id="username" name="username" onChange={(e) => setUsername(e.target.value)}></input>
 
@@ -57,7 +58,31 @@ const Login = () => {
             <input required type="password" id='password' name='password' onChange={(e) => setPassword(e.target.value)}></input>
 
             <input type="submit" value="sign in!"></input>
-        </form>
+        </form> */}
+
+        <div className='center'>
+          <h1>Login</h1>
+          <form>
+
+            <div className='txt_field'>
+              <input type='text' name='username' required/>
+              <span></span>
+              <label>Username</label>
+            </div>
+
+            <div className='txt_field'>
+              <input type='password' name='password' required/>
+              <span></span>
+              <label>Password</label>
+            </div>
+
+            <input id='login-btn' type='submit' value='Login'></input>
+            <div className='signup_link'>
+                Not registered? <a href='/register'>Sign Up</a>
+            </div>
+
+          </form>
+        </div>
     </>
   )
 }
