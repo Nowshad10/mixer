@@ -4,6 +4,7 @@ import './style.css'
 const FetchApi = (url) => {
     const [data, setData] = useState([]);
     url = 'https://www.thecocktaildb.com/api/json/v2/9973533/popular.php'
+   // www.thecocktaildb.com/api/json/v2/9973533/lookup.php?iid=552
 
     const fetchDrinks = async () => {
         const response = await fetch(url)
@@ -25,13 +26,14 @@ const FetchApi = (url) => {
 
         // Gather the ingredients for each drink
         const ingArray = Object.entries(drink)
+       // console.log(ingArray)
         const ingFilter = ingArray.filter(x => x[0].includes('strIngredient') && x[1] !== null) 
-        // console.log(ingFilter)
+        //console.log(ingFilter)
 
         // Gather the measures for each drink
         let measuresArray = Object.entries(drink)
         const mesFilter = measuresArray.filter(x => x[0].includes('strMeasure') && x[1] !== null)
-        console.log(mesFilter)
+            //console.log(mesFilter)
 
         return ( 
            <div className="drink-card">              
