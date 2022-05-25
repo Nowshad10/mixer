@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios';
 import './style.css'
 import ClipLoader from "react-spinners/ClipLoader";
+import DisplayDrinkCard from '../DisplayDrinkCard/DisplayDrinkCard';
 
 function MultiSearch({ingredients, clickState}) {
     console.log(clickState)
@@ -116,8 +117,7 @@ function getCombinations(valuesArray) {
         
                 return (
                     <>
-                        <h2>{strDrink}</h2>
-                        <img className="multi-search" src={strDrinkThumb} alt={strDrink} />
+                        <DisplayDrinkCard drinks={filtResult}/>
                         
                     </>
                     
@@ -131,3 +131,7 @@ function getCombinations(valuesArray) {
 }
 
 export default MultiSearch
+
+
+
+
