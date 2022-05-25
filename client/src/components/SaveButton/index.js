@@ -10,7 +10,7 @@ const SaveButton = ({drinkId, drinkName, drinkImage, instructions}) => {
         body: JSON.stringify({id_drink: drinkId, username: username, drink_name: drinkName, drink_image: drinkImage, drink_instructions: instructions}),
         headers: {'Content-Type': 'application/json'}, withCredentials: true
     }
-    await fetch(`http://localhost:8000/drinks/${username}/`, options)
+    await fetch(`https://mixer-server.herokuapp.com/drinks/${username}/`, options)
     
 }
   

@@ -9,7 +9,7 @@ const SearchByName = () => {
 
   const handleNameSearch = (e) => {
       e.preventDefault()
-      fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${nameSelected}`)
+      fetch(`https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=${nameSelected}`)
       .then(response => response.json())
       .then(data => {
           setDrinks(data.drinks)
