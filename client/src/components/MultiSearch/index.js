@@ -3,11 +3,12 @@ import { useEffect, useState } from 'react'
 import axios from 'axios';
 import './style.css'
 
-function MultiSearch() {
+function MultiSearch({ingredients, clickState}) {
+    console.log(ingredients)
+    console.log(clickState)
 
-const [filtResult, setFiltResult] = useState(null)
-const ingredients = ['Gin', 'Dry Vermouth', 'Olive', 'Vodka', 'Orange juice', 'Tequila', 'Grenadine']
-// use usestate to add salt and other ingredients like that as default. Then add user ingredients onto existing array
+const [filtResult, setFiltResult] = useState([])
+// const ingredients = ['Gin', 'Dry Vermouth', 'Olive', 'Vodka', 'Orange juice', 'Tequila', 'Grenadine']
 
 function getCombinations(valuesArray) {
     let combi = [];
@@ -50,12 +51,13 @@ function getCombinations(valuesArray) {
         }
         //Flatten array of arrays into single array
         fullList = fullList.flat(1)
+        console.log(fullList)
         //ingredients.push('Salt', 'Olive', 'Tea', 'Sugar')
         let result = []
         let valid = true;
         fullList.map(drink => {
             for (let i = 1; i <= 15; i++) {
-                //console.log(drink[`strIngredient${i}`])
+                console.log(drink[`strIngredient${i}`])
                 if (drink[`strIngredient${i}`] !== null && ingredients.indexOf(drink[`strIngredient${i}`]) === -1) {
                     valid = false;
                     break;
@@ -75,13 +77,13 @@ function getCombinations(valuesArray) {
 }
    useEffect(() => {
     getCombinations(ingredients);
-   }, [])
+   }, [clickState])
    
    
  console.log(filtResult)
    
   return (
-    filtResult.length !== null ? filtResult.map(drink => {
+    filtResult.length !== 0 ? filtResult.map(drink => {
         console.log(drink)
         const {strDrink, strDrinkThumb} = drink
 
@@ -94,9 +96,7 @@ function getCombinations(valuesArray) {
         )
     })
     :
-    <h1>hello!</h1>
-    
-    
+    <h2>No search rn</h2> 
   )
 }
 
