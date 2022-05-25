@@ -116,6 +116,7 @@ function getCombinations(valuesArray) {
             <ClipLoader color={color} loading={loading}  size={30} />
 
         ) : (
+            
             filtResult.length !== 0 ? filtResult.map(drink => {
                 console.log(drink)
                 const {strDrink, strDrinkThumb} = drink
@@ -124,18 +125,22 @@ function getCombinations(valuesArray) {
                     <>
                         <h2>{strDrink}</h2>
                         <img className="multi-search" src={strDrinkThumb} alt={strDrink} />
-                        <button onClick={clearResults}>Clear</button>
+                        
                     </>
                     
                 )
             })
             :
-            <h2>No search rn</h2>
+            <>
+                <h2>No search rn</h2>
+            </>
+            
         )
 
-    
+       
          
     }
+     {filtResult.length !== 0 && <button onClick={clearResults}>Clear</button>}
   </>  
   )
 }
