@@ -18,7 +18,7 @@ const TestAuth = () => {
                         body: JSON.stringify({ token: token }),
                         headers: {'Content-Type': 'application/json'}
                     }
-                    const response = await fetch('http://localhost:8000/api/auth/', options)
+                    const response = await fetch('https://mixer-server.herokuapp.com/api/auth/', options)
                     if (response.status === 500) {
                         localStorage.clear()
                         navigate('/login')

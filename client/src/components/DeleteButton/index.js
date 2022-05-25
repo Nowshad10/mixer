@@ -4,7 +4,7 @@ const DeleteButton = ({id}) => {
 
   const handleDeleteDrink = async (e) => {
     e.preventDefault()
-    fetch(`http://localhost:8000/drinks/single/${id}/`, {
+    fetch(`https://mixer-server.herokuapp.com/drinks/single/${id}/`, {
             method: 'DELETE'
     })
     .then(data => {

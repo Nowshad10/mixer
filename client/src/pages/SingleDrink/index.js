@@ -16,7 +16,7 @@ const SingleDrink = () => {
 
   
   useEffect(() => {
-      fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${drinkId}`)
+      fetch(`https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=${drinkId}`)
       .then(response => {
           if (!response.ok) {
               throw Error('Could not fetch drink')
