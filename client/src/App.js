@@ -21,7 +21,7 @@ function App() {
         <Route path='/auth' element={<TestAuth/>}></Route>
         <Route path='/saved-drinks' element={<SavedDrinks/>}></Route>
         <Route path='/popular' element={<PopularDrinks/>}></Route>
-        <Route path='/drink-info/:id' element={<SingleDrink/>}></Route>
+        <Route path='/drink-info/:drinkId' element={<SingleDrink/>}></Route>
         <Route path='/searchbyname' element={<SearchByName/>}/>
       </Routes>
     </>
