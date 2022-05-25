@@ -26,8 +26,9 @@ const Navbar = () => {
     navigation = (
       <>
         <NavLink to="/">Home</NavLink>
-        <NavLink to='/searchbyname'>Search By Name</NavLink>
-        <NavLink to='/ingredientsearch'>Ingredient Search</NavLink>
+        {/* <NavLink to='/searchbyname'>Search By Name</NavLink>
+        <NavLink to='/ingredientsearch'>Ingredient Search</NavLink> */}
+        <NavLink to='/search'>Search</NavLink>
         <NavLink to="/popular">Popular</NavLink>
         <NavLink to="/random">Random</NavLink>
         <NavLink to="/register">Register</NavLink>
@@ -38,9 +39,10 @@ const Navbar = () => {
     console.log(`username verified: ${username}`)
     navigation = (
       <>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to='/searchbyname'>Search By Name</NavLink>
-        <NavLink to='/ingredientsearch'>Ingredient Search</NavLink>
+        <NavLink to="/auth">Home</NavLink>
+        {/* <NavLink to='/searchbyname'>Search By Name</NavLink>
+        <NavLink to='/ingredientsearch'>Ingredient Search</NavLink> */}
+        <NavLink to='/search'>Search</NavLink>
         <NavLink to="/popular">Popular</NavLink>
         <NavLink to="/random">Random</NavLink>
         <NavLink to="/saved-drinks">Saved Drinks</NavLink>
