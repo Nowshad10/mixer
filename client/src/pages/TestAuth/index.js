@@ -1,5 +1,6 @@
 import React, { useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
+import NavigationButton from '../../components/NavigationButton';
 
 const TestAuth = () => {
     const navigate = useNavigate()
@@ -28,10 +29,12 @@ const TestAuth = () => {
             }
         )
         ()
-    }, [])
+    }, [navigate])
   return (
     <>
         <h2>Welcome {username}!</h2>
+        <NavigationButton buttonName='View Your Saved Drinks' route='saved-drinks'/>
+        <NavigationButton buttonName='Search For Drinks' route='search'/>
     </>
   )
 }
