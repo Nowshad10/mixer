@@ -94,12 +94,7 @@ function getCombinations(valuesArray) {
     getCombinations(originalIngredients);
     
    }, [clickState])
-   
-//   useEffect(() => {
-//       setLoading(true)
-//   }, [getCombinations])
   
-   
    const clearResults = () => {  
         originalIngredients.length = 0;
         setFiltResult([])   
@@ -110,14 +105,12 @@ function getCombinations(valuesArray) {
    
   return (
     <>
-    
-    
         {loading ?  (
             <ClipLoader color={color} loading={loading}  size={30} />
 
         ) : (
             
-            filtResult.length !== 0 ? filtResult.map(drink => {
+            filtResult.length !== 0 && filtResult.map(drink => {
                 console.log(drink)
                 const {strDrink, strDrinkThumb} = drink
         
@@ -129,16 +122,8 @@ function getCombinations(valuesArray) {
                     </>
                     
                 )
-            })
-            :
-            <>
-                <h2>No search rn</h2>
-            </>
-            
-        )
-
-       
-         
+            })         
+        )      
     }
      {filtResult.length !== 0 && <button onClick={clearResults}>Clear</button>}
   </>  

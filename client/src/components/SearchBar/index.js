@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
-
+import './style.css'
 
 const SearchBar = ({setFilteredData, setIngredientsSelected, ingredientsSelected, filteredData, setClickState, clickState}) => {
   const [ingredients, setIngredients] = useState([])
-  
-  //const [fetchData, setFetchData] = useState([])
 
   const searchWordInput = document.querySelector('#search-word')
 
@@ -47,25 +45,37 @@ const SearchBar = ({setFilteredData, setIngredientsSelected, ingredientsSelected
 console.log(ingredientsSelected)
 
   return (
-    <div className="search">
-    <div className="searchInputs">
-        <input id="search-word" type="text" placeholder='Enter ingredient' onInput={handleFilter} />
-        <input onClick={handleAddIngredient} type="button" value="add ingredient" id="submit-btn"/>
-        <input onClick={handleClick} type="button" value="search!"/>
-        <div className="searchIcon"> 
-        </div>    
-    </div>
-    {filteredData.length !== 0 && (
-    <div className="dataResult">
-      {filteredData.map((value, key) => {;    
-                return (
-                    <div key={key} className='dataItem'>
-                        <p onClick={handleIngredientSelect} id="ingredient">{value.strIngredient1} </p> 
-                    </div>
-                );
-            })}  
-    </div>
-)}
+    <div id="search">
+      <h2>Add your ingredients to see what you can mix!</h2>
+      <form className="search-inputs">
+          <input id="search-word" type="text" placeholder='Enter ingredient' onInput={handleFilter} autoComplete='off'/>
+          <input onClick={handleAddIngredient} type="button" value="add ingredient" id="submit-btn"/>
+          <input onClick={handleClick} type="button" value="search!" id='search-btn'/>
+          {/* <div className="searchIcon"> 
+          </div>     */}
+      </form>
+    <div className="show-ingredients">
+      {filteredData.length !== 0 && (
+      <div id="data-result">
+        {filteredData.map((value, key) => {;    
+                  return (
+                      <div key={key} className='data-item'>
+                          <p onClick={handleIngredientSelect} className="ingredient">{value.strIngredient1} </p> 
+                      </div>
+                  );
+              })}  
+      </div>
+  )}
+  <ol id="ing-list">
+  {ingredientsSelected.map((ing, key) => {
+      return (
+        <li key={key}>{ing}</li>
+      )
+    })}
+  </ol>
+    
+    </div>  
+    
 </div>
   )
 }
