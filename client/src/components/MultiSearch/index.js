@@ -4,13 +4,20 @@ import axios from 'axios';
 import './style.css'
 
 function MultiSearch({ingredients, clickState}) {
-    console.log(ingredients)
+   // console.log('Ingredient', ingredients)
+    
     console.log(clickState)
+    
 
 const [filtResult, setFiltResult] = useState([])
-// const ingredients = ['Gin', 'Dry Vermouth', 'Olive', 'Vodka', 'Orange juice', 'Tequila', 'Grenadine']
+//const ingredients = ['Vodka', 'Orange juice']
+let originalIngredients = ingredients;
+console.log(originalIngredients)
+//console.log(ingredients)
+// use usestate to add salt and other ingredients like that as default. Then add user ingredients onto existing array
 
 function getCombinations(valuesArray) {
+    
     let combi = [];
     let temp = [];
     let slent = Math.pow(2, valuesArray.length);
@@ -27,7 +34,7 @@ function getCombinations(valuesArray) {
     }
     combi.sort((a, b) => a.length - b.length);
     // console.log(combi.join("\n"));
-    // console.log(combi.filter(x => x.length > 1))
+    console.log(combi.filter(x => x.length > 1))
     combi = combi.filter(x => x.length > 1)
 // Fetch data with combinations array    
     let drinkList = []
@@ -51,32 +58,54 @@ function getCombinations(valuesArray) {
         }
         //Flatten array of arrays into single array
         fullList = fullList.flat(1)
-        console.log(fullList)
-        //ingredients.push('Salt', 'Olive', 'Tea', 'Sugar')
+        console.log('Fulllist',fullList)
+        fullList.length > 0 && originalIngredients.push('Salt', 'Olive', 'Sugar')
         let result = []
-        let valid = true;
-        fullList.map(drink => {
+        let valid;
+        console.log(originalIngredients)
+        fullList.forEach(drink => {
             for (let i = 1; i <= 15; i++) {
-                console.log(drink[`strIngredient${i}`])
-                if (drink[`strIngredient${i}`] !== null && ingredients.indexOf(drink[`strIngredient${i}`]) === -1) {
+                console.log(drink.strDrink)
+                console.log(drink[`strIngredient${i}`])   
+                console.log(originalIngredients)
+                if (drink[`strIngredient${i}`] !== null && !originalIngredients.includes(drink[`strIngredient${i}`])) {
                     valid = false;
                     break;
                 } else {
-                    valid = true;
+                    valid = true
                 }
+                
+                // if (originalIngredients.indexOf(drink[`strIngredient${i}`]) === -1) {
+                //     console.log('If statement triggered')
+                //     console.log(drink.strDrink)
+                //     valid = false;
+                //     console.log('Exiting loop')
+                //     break;
+                // } else {
+                //     console.log('Valid is true!')
+                //     valid = true;
+                // }    
             }
-            valid === true && result.push(drink)  
-             
+            console.log(valid)
+            if (valid === true) {
+                result.push(drink)
+                console.log('Drink pushed')
+            } else {
+                console.log('Drink not pushed')
+            }
+           //valid === true && result.push(drink)
         })
+        console.log(result) 
         // Filter result to remove duplicates
         const ids = result.map(x => x.idDrink)
         const filtered = result.filter(({idDrink}, index) => !ids.includes(idDrink, index + 1))
+        originalIngredients = []
         setFiltResult(filtered)
     }
         fetchAll(combi) 
 }
    useEffect(() => {
-    getCombinations(ingredients);
+    getCombinations(originalIngredients);
    }, [clickState])
    
    
@@ -91,6 +120,7 @@ function getCombinations(valuesArray) {
             <>
                 <h2>{strDrink}</h2>
                 <img className="multi-search" src={strDrinkThumb} alt={strDrink} />
+
             </>
             
         )
