@@ -55,7 +55,7 @@ function getCombinations(valuesArray) {
         fullList = fullList.flat(1)
         console.log(fullList)
         
-        fullList.length > 0 && originalIngredients.push('Salt', 'Olive', 'Sugar', 'Water')
+        fullList.length > 0 && originalIngredients.push('Salt', 'Olive', 'Sugar', 'Water', 'Ice', 'Lemon peel', 'Orange peel', 'Orange spiral')
         let result = []
         let valid;
         let newIngredients = originalIngredients.map(x => x.toLowerCase().replace(/\s/g, ''))

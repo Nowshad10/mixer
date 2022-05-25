@@ -42,6 +42,11 @@ const SearchBar = ({setFilteredData, setIngredientsSelected, ingredientsSelected
     console.log(clickState)
   }
 
+  const handleDelete = (e) => {
+    console.log(e.target.id)
+    setIngredientsSelected((prevState) => prevState.filter((prevItem ) => prevItem !== e.target.id))
+  }
+
 console.log(ingredientsSelected)
 
   return (
@@ -69,7 +74,10 @@ console.log(ingredientsSelected)
   <ol id="ing-list">
   {ingredientsSelected.map((ing, key) => {
       return (
-        <li key={key}>{ing}</li>
+        <div className='ing-li'>
+         <p id={ing}className='ing-delete' onClick={handleDelete}>&times;</p> <li key={key}>{ing}</li> 
+        </div>
+                 
       )
     })}
   </ol>

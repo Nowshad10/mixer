@@ -65,3 +65,15 @@ form.search-inputs {
 #ing-list > li:hover {
     text-shadow: white 1px 1px;
 }
+
+.ing-li {
+    display: flex;
+    /* padding: 1em; */
+    align-items: center;
+}
+
+.ing-delete {
+ padding: 1em;
+ margin: 0em 3em 0em 0em;
+ cursor: pointer;
+}
