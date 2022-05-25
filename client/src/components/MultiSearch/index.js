@@ -2,16 +2,19 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from 'axios';
 import './style.css'
+import ClipLoader from "react-spinners/ClipLoader";
 
 function MultiSearch({ingredients, clickState}) {
     console.log(clickState)
     const [filtResult, setFiltResult] = useState([])
-    
+    const [loading, setLoading] = useState(false)
+    let [color, setColor] = useState("#ffffff");
+
     let originalIngredients = ingredients;
     console.log(originalIngredients)
 
 function getCombinations(valuesArray) {
-    
+    setLoading(true)
     let combi = [];
     let temp = [];
     let slent = Math.pow(2, valuesArray.length);
@@ -83,13 +86,19 @@ function getCombinations(valuesArray) {
         const filtered = result.filter(({idDrink}, index) => !ids.includes(idDrink, index + 1))
         originalIngredients = []
         setFiltResult(filtered)
+        setLoading(false)
     }
         fetchAll(combi) 
 }
    useEffect(() => {
     getCombinations(originalIngredients);
+    
    }, [clickState])
    
+//   useEffect(() => {
+//       setLoading(true)
+//   }, [getCombinations])
+  
    
    const clearResults = () => {  
         originalIngredients.length = 0;
@@ -97,23 +106,37 @@ function getCombinations(valuesArray) {
     }
    
  console.log(filtResult)
+ console.log(loading)
    
   return (
-    filtResult.length !== 0 ? filtResult.map(drink => {
-        console.log(drink)
-        const {strDrink, strDrinkThumb} = drink
+    <>
+    
+    
+        {loading ?  (
+            <ClipLoader color={color} loading={loading}  size={30} />
 
-        return (
-            <>
-                <h2>{strDrink}</h2>
-                <img className="multi-search" src={strDrinkThumb} alt={strDrink} />
-                <button onClick={clearResults}>Clear</button>
-            </>
-            
+        ) : (
+            filtResult.length !== 0 ? filtResult.map(drink => {
+                console.log(drink)
+                const {strDrink, strDrinkThumb} = drink
+        
+                return (
+                    <>
+                        <h2>{strDrink}</h2>
+                        <img className="multi-search" src={strDrinkThumb} alt={strDrink} />
+                        <button onClick={clearResults}>Clear</button>
+                    </>
+                    
+                )
+            })
+            :
+            <h2>No search rn</h2>
         )
-    })
-    :
-    <h2>No search rn</h2> 
+
+    
+         
+    }
+  </>  
   )
 }
 
