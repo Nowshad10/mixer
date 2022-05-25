@@ -2,14 +2,17 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import axios from 'axios';
 import './style.css'
+import DisplayDrinkCard from '../DisplayDrinkCard/DisplayDrinkCard';
 
-function MultiSearch() {
-
-const [filtResult, setFiltResult] = useState(null)
-const ingredients = ['Gin', 'Dry Vermouth', 'Olive', 'Vodka', 'Orange juice', 'Tequila', 'Grenadine']
-// use usestate to add salt and other ingredients like that as default. Then add user ingredients onto existing array
+function MultiSearch({ingredients, clickState}) {
+    console.log(clickState)
+    const [filtResult, setFiltResult] = useState([])
+    
+    let originalIngredients = ingredients;
+    console.log(originalIngredients)
 
 function getCombinations(valuesArray) {
+    
     let combi = [];
     let temp = [];
     let slent = Math.pow(2, valuesArray.length);
@@ -26,7 +29,7 @@ function getCombinations(valuesArray) {
     }
     combi.sort((a, b) => a.length - b.length);
     // console.log(combi.join("\n"));
-    // console.log(combi.filter(x => x.length > 1))
+    console.log(combi.filter(x => x.length > 1))
     combi = combi.filter(x => x.length > 1)
 // Fetch data with combinations array    
     let drinkList = []
@@ -50,54 +53,79 @@ function getCombinations(valuesArray) {
         }
         //Flatten array of arrays into single array
         fullList = fullList.flat(1)
-        //ingredients.push('Salt', 'Olive', 'Tea', 'Sugar')
+        console.log('Fulllist',fullList)
+        fullList.length > 0 && originalIngredients.push('Salt', 'Olive', 'Sugar')
         let result = []
-        let valid = true;
-        fullList.map(drink => {
+        let valid;
+        console.log(originalIngredients)
+        fullList.forEach(drink => {
             for (let i = 1; i <= 15; i++) {
-                //console.log(drink[`strIngredient${i}`])
-                if (drink[`strIngredient${i}`] !== null && ingredients.indexOf(drink[`strIngredient${i}`]) === -1) {
+                console.log(drink.strDrink)
+                console.log(drink[`strIngredient${i}`])   
+                console.log(originalIngredients)
+                if (drink[`strIngredient${i}`] !== null && !originalIngredients.includes(drink[`strIngredient${i}`])) {
                     valid = false;
                     break;
                 } else {
-                    valid = true;
+                    valid = true
                 }
+                
+                // if (originalIngredients.indexOf(drink[`strIngredient${i}`]) === -1) {
+                //     console.log('If statement triggered')
+                //     console.log(drink.strDrink)
+                //     valid = false;
+                //     console.log('Exiting loop')
+                //     break;
+                // } else {
+                //     console.log('Valid is true!')
+                //     valid = true;
+                // }    
             }
-            valid === true && result.push(drink)  
-             
+            console.log(valid)
+            if (valid === true) {
+                result.push(drink)
+                console.log('Drink pushed')
+            } else {
+                console.log('Drink not pushed')
+            }
+           //valid === true && result.push(drink)
         })
+        console.log(result) 
         // Filter result to remove duplicates
         const ids = result.map(x => x.idDrink)
         const filtered = result.filter(({idDrink}, index) => !ids.includes(idDrink, index + 1))
         setFiltResult(filtered)
+        originalIngredients = []
     }
-        fetchAll(combi) 
+    fetchAll(combi) 
 }
-   useEffect(() => {
-    getCombinations(ingredients);
-   }, [])
-   
-   
+useEffect(() => {
+    getCombinations(originalIngredients);
+}, [clickState])
+
+// if (filtResult) {
+//     originalIngredients = []
+// }
  console.log(filtResult)
    
   return (
-    filtResult.length !== null ? filtResult.map(drink => {
+    filtResult.length !== 0 ? filtResult.map(drink => {
         console.log(drink)
         const {strDrink, strDrinkThumb} = drink
 
         return (
             <>
-                <h2>{strDrink}</h2>
-                <img className="multi-search" src={strDrinkThumb} alt={strDrink} />
+                {/* <h2>{strDrink}</h2>
+                <img className="multi-search" src={strDrinkThumb} alt={strDrink} /> */}
+                <DisplayDrinkCard drinks={filtResult}/>
+
             </>
             
         )
     })
     :
-    <h1>hello!</h1>
-    
-    
+    <h2>No search rn</h2> 
   )
 }
 
-export default MultiSearch
+export default MultiSearch;

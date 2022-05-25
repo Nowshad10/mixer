@@ -10,6 +10,7 @@ import SingleDrink from './pages/SingleDrink';
 import PopularDrinks from './pages/PopularDrinks';
 import SearchByName from './pages/SearchByName';
 import RandomDrink from './pages/RandomDrink';
+import SearchIngredients from './pages/SearchIngredients';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/random' element={<RandomDrink/>}></Route>
         <Route path='/drink-info/:drinkId' element={<SingleDrink/>}></Route>
         <Route path='/searchbyname' element={<SearchByName/>}/>
+        <Route path='/ingredientsearch' element={<SearchIngredients />}></Route>
       </Routes>
     </>
   );
