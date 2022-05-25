@@ -75,7 +75,9 @@ function getCombinations(valuesArray) {
             }
            //valid === true && result.push(drink)
         })
+        newIngredients.length = 0
         console.log(result) 
+        console.log(newIngredients)
         // Filter result to remove duplicates
         const ids = result.map(x => x.idDrink)
         const filtered = result.filter(({idDrink}, index) => !ids.includes(idDrink, index + 1))
@@ -88,10 +90,11 @@ function getCombinations(valuesArray) {
     getCombinations(originalIngredients);
    }, [clickState])
    
-//    if (filtResult.length > 0) {
-//     originalIngredients.length = 0
-//    }
-   //filtResult.length > 0 && originalIngredients = originalIngredients.length === 0
+   
+   const clearResults = () => {  
+        originalIngredients.length = 0;
+        setFiltResult([])   
+    }
    
  console.log(filtResult)
    
@@ -104,7 +107,7 @@ function getCombinations(valuesArray) {
             <>
                 <h2>{strDrink}</h2>
                 <img className="multi-search" src={strDrinkThumb} alt={strDrink} />
-
+                <button onClick={clearResults}>Clear</button>
             </>
             
         )
