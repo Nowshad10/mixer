@@ -1,3 +1,22 @@
-.grid {
-    columns: 2;
+.iDrink {
+    margin: 10px 50px 10px 50px;
 }
+
+.beforeaheader {
+  margin-top: 10px;  
+
+}
+
+.instruction {
+    margin-top: 20px
+}
+
+.left {
+    color:red
+}
+
+.right {
+    color: pink;
+}
+
+

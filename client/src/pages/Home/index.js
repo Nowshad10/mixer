@@ -12,12 +12,12 @@ const Home = () => {
           <div className='overlay'></div>
             <div className='homeText'>
               <div className='homeText-inner'>  
-                <h1>
+                <h1 className='wel-mess'>
                   Welcome to Mixer
                 </h1>
-                <p>
+                <h2 className='wel-mess-2'>
                   Find out what drinks you can make with ingredients you have at home.
-                </p>
+                </h2>
               </div>
               {/* <div>
               <button class="btn-general"><span>Get Drinking!</span></button>

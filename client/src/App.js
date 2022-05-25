@@ -11,6 +11,7 @@ import PopularDrinks from './pages/PopularDrinks';
 import SearchByName from './pages/SearchByName';
 import RandomDrink from './pages/RandomDrink';
 import SearchIngredients from './pages/SearchIngredients';
+import Search from './pages/Search';
 
 function App() {
   return (
@@ -25,8 +26,10 @@ function App() {
         <Route path='/popular' element={<PopularDrinks/>}></Route>
         <Route path='/random' element={<RandomDrink/>}></Route>
         <Route path='/drink-info/:drinkId' element={<SingleDrink/>}></Route>
-        <Route path='/searchbyname' element={<SearchByName/>}/>
-        <Route path='/ingredientsearch' element={<SearchIngredients />}></Route>
+        <Route path='/search' element={<Search/>}>
+          <Route path='/search/name' element={<SearchByName/>}/>
+          <Route path='/search/ingredient' element={<SearchIngredients/>}/>
+        </Route>
       </Routes>
     </>
   );

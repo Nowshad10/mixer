@@ -9,7 +9,7 @@ const SearchByName = () => {
 
   const handleNameSearch = (e) => {
       e.preventDefault()
-      fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${nameSelected}`)
+      fetch(`https://www.thecocktaildb.com/api/json/v2/9973533/search.php?s=${nameSelected}`)
       .then(response => response.json())
       .then(data => {
           setDrinks(data.drinks)
@@ -23,11 +23,12 @@ const SearchByName = () => {
     <form onSubmit={handleNameSearch}>
         <label htmlFor='cocktail-name'>Drink Name</label>
         <input type='text' onChange={(e) => setNameSelected(e.target.value)} name='cocktailName' id='cocktailName'/>
-        <input type='submit' value='search for drink'/>
+        <button type='submit'>Search for drink</button>
     </form>
-    { drinks && <DisplayDrinkCard drinks={drinks} />
-
-    }
+    <div className='grid-container'>
+      { drinks && <DisplayDrinkCard drinks={drinks} /> }
+    </div>
+    
     </>
   )
 }

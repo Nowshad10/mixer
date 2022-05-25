@@ -13,7 +13,7 @@
   .navbar-container {
     display: flex;
     justify-content: space-between;
-    height: 80px;
+    height: 90px;
   }
   
   .container {
@@ -22,7 +22,7 @@
     max-width: 1300px;
     margin-right: auto;
     margin-left: auto;
-    padding-top: 10px;
+    padding-top: px;
     padding-right: 50px;
     padding-left: 50px;
   
@@ -88,7 +88,7 @@
       width: 100%;
       min-height: 3vh;
       position: absolute;
-      top: 80px;
+      top: 60px;
       left: -100%;
       opacity: 1;
       transition: all 0.5s ease;

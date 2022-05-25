@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import DisplayDrinkCard from '../../components/DisplayDrinkCard/DisplayDrinkCard';
 import FetchApi from '../../components/FetchDrinks'
+import './index.css'
 
 const PopularDrinks = () => {
 
@@ -17,7 +18,11 @@ const PopularDrinks = () => {
   return (
     // <FetchApi/>
     <>
-    { drinks && <DisplayDrinkCard drinks={drinks}/>}
+      <div className='grid-container'> 
+        { drinks && <DisplayDrinkCard drinks={drinks}/>}
+      </div>
+
+   
     </>
   )
 }

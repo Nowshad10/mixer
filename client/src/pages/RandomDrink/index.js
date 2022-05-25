@@ -21,7 +21,7 @@ const RandomDrink = () => {
     <div>
       <center>
       { drinks && <DisplayDrinkCard drinks={drinks}/>}
-      <input type='submit' value='another random cocktail' onClick={handleSubmit}/>
+      <button onClick={handleSubmit}>Another cocktail!</button>
       </center>
     </div>
   )

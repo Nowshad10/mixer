@@ -51,7 +51,7 @@ const Navbar = () => {
           <NavLink to="/" className='nav-links' onClick={closeMobileMenu}>Home</NavLink>
           </li>
           <li className='nav-item'>
-            <NavLink to='/searchbyname' className='nav-links' onClick={closeMobileMenu}>Search</NavLink>
+            <NavLink to='/search' className='nav-links' onClick={closeMobileMenu}>Search</NavLink>
           </li>
           <li className='nav-item'>
             <NavLink to="/popular" className='nav-links' onClick={closeMobileMenu}>Popular</NavLink>
@@ -83,7 +83,7 @@ const Navbar = () => {
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
           <li className='nav-item'><NavLink to="/" className='nav-links'onClick={closeMobileMenu}>Home</NavLink>
           </li>
-          <li className='nav-item'><NavLink to='/searchbyname' className='nav-links' onClick={closeMobileMenu}>Search</NavLink>
+          <li className='nav-item'><NavLink to='/search' className='nav-links' onClick={closeMobileMenu}>Search</NavLink>
           </li>
           <li className='nav-item'><NavLink to="/popular" className='nav-links' onClick={closeMobileMenu}>Popular</NavLink>
           </li>
