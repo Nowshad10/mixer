@@ -1,5 +1,6 @@
 import React, { useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
+import NavigationButton from '../../components/NavigationButton';
 
 const TestAuth = () => {
     const navigate = useNavigate()
@@ -18,7 +19,7 @@ const TestAuth = () => {
                         body: JSON.stringify({ token: token }),
                         headers: {'Content-Type': 'application/json'}
                     }
-                    const response = await fetch('http://localhost:8000/api/auth/', options)
+                    const response = await fetch('https://mixer-server.herokuapp.com/api/auth/', options)
                     if (response.status === 500) {
                         localStorage.clear()
                         navigate('/login')
@@ -28,10 +29,12 @@ const TestAuth = () => {
             }
         )
         ()
-    }, [])
+    }, [navigate])
   return (
     <>
         <h2>Welcome {username}!</h2>
+        <NavigationButton buttonName='View Your Saved Drinks' route='saved-drinks'/>
+        <NavigationButton buttonName='Search For Drinks' route='search'/>
     </>
   )
 }

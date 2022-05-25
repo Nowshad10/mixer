@@ -16,7 +16,7 @@ const SingleDrink = () => {
 
   
   useEffect(() => {
-      fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
+      fetch(`https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=${drinkId}`)
       .then(response => {
           if (!response.ok) {
               throw Error('Could not fetch drink')
@@ -47,7 +47,7 @@ const SingleDrink = () => {
 
   
   
-  const { id } = useParams();
+  const { drinkId } = useParams();
 
   return (
     <div>
@@ -72,7 +72,7 @@ const SingleDrink = () => {
         </div>
         <img src={drinkImage} alt={drinkName} style={{ width:"300px", height:'auto'}}/>
         { username &&    
-        <SaveButton id={id} drinkName={drinkName} drinkImage={drinkImage} instructions={instructions}/>
+        <SaveButton drinkId={drinkId} drinkName={drinkName} drinkImage={drinkImage} instructions={instructions}/>
         }
         { !username &&
             <p>Log in to save drinks</p>
