@@ -9,13 +9,10 @@ function Search() {
   const [ingredientsSelected, setIngredientsSelected] = useState([]);
   const [clickState, setClickState] = useState(false);
 
-  const handleChange = (value) => {
-    setIngredientsSelected([...ingredientsSelected, value])
-    value = ''
-  }
+  
   return (
     <>
-        <SearchBar ingredientsSelected={ingredientsSelected} setIngredientsSelected={setIngredientsSelected} setFilteredData={setFilteredData} filteredData={filteredData} setClickState={setClickState} clickState={clickState} handleChange={handleChange}/>
+        <SearchBar ingredientsSelected={ingredientsSelected} setIngredientsSelected={setIngredientsSelected} setFilteredData={setFilteredData} filteredData={filteredData} setClickState={setClickState} clickState={clickState}/>
         <MultiSearch ingredients={ingredientsSelected} clickState={clickState}/>
     </>
   )

@@ -4,17 +4,11 @@ import axios from 'axios';
 import './style.css'
 
 function MultiSearch({ingredients, clickState}) {
-   // console.log('Ingredient', ingredients)
-    
     console.log(clickState)
+    const [filtResult, setFiltResult] = useState([])
     
-
-const [filtResult, setFiltResult] = useState([])
-//const ingredients = ['Vodka', 'Orange juice']
-let originalIngredients = ingredients;
-console.log(originalIngredients)
-//console.log(ingredients)
-// use usestate to add salt and other ingredients like that as default. Then add user ingredients onto existing array
+    let originalIngredients = ingredients;
+    
 
 function getCombinations(valuesArray) {
     
@@ -59,32 +53,22 @@ function getCombinations(valuesArray) {
         //Flatten array of arrays into single array
         fullList = fullList.flat(1)
         console.log('Fulllist',fullList)
-        fullList.length > 0 && originalIngredients.push('Salt', 'Olive', 'Sugar')
+        fullList.length > 0 && originalIngredients.push('Salt', 'Olive', 'Sugar', 'Water')
         let result = []
         let valid;
-        console.log(originalIngredients)
+        let newIngredients = originalIngredients.map(x => x.toLowerCase().replace(/\s/g, ''))
+        console.log(newIngredients)
         fullList.forEach(drink => {
             for (let i = 1; i <= 15; i++) {
                 console.log(drink.strDrink)
                 console.log(drink[`strIngredient${i}`])   
                 console.log(originalIngredients)
-                if (drink[`strIngredient${i}`] !== null && !originalIngredients.includes(drink[`strIngredient${i}`])) {
+                if (drink[`strIngredient${i}`] !== null && !newIngredients.includes(drink[`strIngredient${i}`].toLowerCase().replace(/\s/g, ''))) {
                     valid = false;
                     break;
                 } else {
                     valid = true
-                }
-                
-                // if (originalIngredients.indexOf(drink[`strIngredient${i}`]) === -1) {
-                //     console.log('If statement triggered')
-                //     console.log(drink.strDrink)
-                //     valid = false;
-                //     console.log('Exiting loop')
-                //     break;
-                // } else {
-                //     console.log('Valid is true!')
-                //     valid = true;
-                // }    
+                }  
             }
             console.log(valid)
             if (valid === true) {
@@ -108,6 +92,7 @@ function getCombinations(valuesArray) {
     getCombinations(originalIngredients);
    }, [clickState])
    
+   //filtResult && originalIngredients === []
    
  console.log(filtResult)
    

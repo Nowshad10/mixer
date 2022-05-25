@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 
-const SearchBar = ({setFilteredData, setIngredientsSelected, ingredientsSelected, filteredData, setClickState, clickState, handleChange}) => {
+const SearchBar = ({setFilteredData, setIngredientsSelected, ingredientsSelected, filteredData, setClickState, clickState}) => {
   const [ingredients, setIngredients] = useState([])
   
   //const [fetchData, setFetchData] = useState([])
@@ -31,17 +31,13 @@ const SearchBar = ({setFilteredData, setIngredientsSelected, ingredientsSelected
   const handleIngredientSelect = (e) => {
     const selected = e.target.textContent
     searchWordInput.value = selected
-   // handleChange(selected)
   }
 
   const handleAddIngredient = () => {
     setIngredientsSelected([...ingredientsSelected, searchWordInput.value])
-    //setIngredientsSelected(prevArray => prevArray.push(searchWordInput.value))
     console.log(ingredientsSelected)
     searchWordInput.value = ""
   }
-
-  //handleChange(searchWordInput.value)
 
   const handleClick = () => {
     setClickState((prevState) => !prevState)
