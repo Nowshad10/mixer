@@ -8,7 +8,7 @@ function MultiSearch({ingredients, clickState}) {
     const [filtResult, setFiltResult] = useState([])
     
     let originalIngredients = ingredients;
-    
+    console.log(originalIngredients)
 
 function getCombinations(valuesArray) {
     
@@ -26,9 +26,7 @@ function getCombinations(valuesArray) {
             combi.push(temp);
         }
     }
-    combi.sort((a, b) => a.length - b.length);
-    // console.log(combi.join("\n"));
-    console.log(combi.filter(x => x.length > 1))
+    combi.sort((a, b) => a.length - b.length); 
     combi = combi.filter(x => x.length > 1)
 // Fetch data with combinations array    
     let drinkList = []
@@ -52,7 +50,8 @@ function getCombinations(valuesArray) {
         }
         //Flatten array of arrays into single array
         fullList = fullList.flat(1)
-        console.log('Fulllist',fullList)
+        console.log(fullList)
+        
         fullList.length > 0 && originalIngredients.push('Salt', 'Olive', 'Sugar', 'Water')
         let result = []
         let valid;
@@ -60,9 +59,6 @@ function getCombinations(valuesArray) {
         console.log(newIngredients)
         fullList.forEach(drink => {
             for (let i = 1; i <= 15; i++) {
-                console.log(drink.strDrink)
-                console.log(drink[`strIngredient${i}`])   
-                console.log(originalIngredients)
                 if (drink[`strIngredient${i}`] !== null && !newIngredients.includes(drink[`strIngredient${i}`].toLowerCase().replace(/\s/g, ''))) {
                     valid = false;
                     break;
@@ -92,7 +88,10 @@ function getCombinations(valuesArray) {
     getCombinations(originalIngredients);
    }, [clickState])
    
-   //filtResult && originalIngredients === []
+//    if (filtResult.length > 0) {
+//     originalIngredients.length = 0
+//    }
+   //filtResult.length > 0 && originalIngredients = originalIngredients.length === 0
    
  console.log(filtResult)
    
