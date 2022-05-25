@@ -9,6 +9,7 @@ import SavedDrinks from './pages/SavedDrinks';
 import SingleDrink from './pages/SingleDrink';
 import PopularDrinks from './pages/PopularDrinks';
 import SearchByName from './pages/SearchByName';
+import RandomDrink from './pages/RandomDrink';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path='/auth' element={<TestAuth/>}></Route>
         <Route path='/saved-drinks' element={<SavedDrinks/>}></Route>
         <Route path='/popular' element={<PopularDrinks/>}></Route>
+        <Route path='/random' element={<RandomDrink/>}></Route>
         <Route path='/drink-info/:drinkId' element={<SingleDrink/>}></Route>
         <Route path='/searchbyname' element={<SearchByName/>}/>
       </Routes>

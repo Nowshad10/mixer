@@ -27,7 +27,8 @@ const Navbar = () => {
       <>
         <NavLink to="/">Home</NavLink>
         <NavLink to='/searchbyname'>Search By Name</NavLink>
-        <NavLink to="/popular">Popular Drinks</NavLink>
+        <NavLink to="/popular">Popular</NavLink>
+        <NavLink to="/random">Random</NavLink>
         <NavLink to="/register">Register</NavLink>
         <NavLink to="/login">Login</NavLink>
       </>
@@ -37,10 +38,11 @@ const Navbar = () => {
     navigation = (
       <>
         <NavLink to="/">Home</NavLink>
-        <NavLink to='/login' onClick={handleClick}>Logout</NavLink>
-        <NavLink to="/saved-drinks">Your Saved Drinks</NavLink>
-        <NavLink to="/popular">Popular Drinks</NavLink>
         <NavLink to='/searchbyname'>Search By Name</NavLink>
+        <NavLink to="/popular">Popular</NavLink>
+        <NavLink to="/random">Random</NavLink>
+        <NavLink to="/saved-drinks">Saved Drinks</NavLink>
+        <NavLink to='/login' onClick={handleClick}>Logout</NavLink>
       </>
     )
   }
