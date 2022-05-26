@@ -71,14 +71,11 @@ function getCombinations(valuesArray) {
                     valid = true
                 }  
             }
-            //console.log(valid)
+           
             if (valid === true) {
                 result.push(drink)
-                //console.log('Drink pushed')
             } else {
-                //console.log('Drink not pushed')
-            }
-           //valid === true && result.push(drink)
+            }         
         })
         newIngredients.length = 0
         console.log(result) 
