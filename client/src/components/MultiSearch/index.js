@@ -16,7 +16,6 @@ function MultiSearch({ingredients, clickState}) {
 
 function getCombinations(valuesArray) {
     setLoading(true)
-
     let combi = [];
     let temp = [];
     let slent = Math.pow(2, valuesArray.length);
@@ -31,9 +30,7 @@ function getCombinations(valuesArray) {
             combi.push(temp);
         }
     }
-
     combi.sort((a, b) => a.length - b.length); 
-
     combi = combi.filter(x => x.length > 1)
 // Fetch data with combinations array    
     let drinkList = []
@@ -67,13 +64,11 @@ function getCombinations(valuesArray) {
         fullList.forEach(drink => {
             for (let i = 1; i <= 15; i++) {
                 if (drink[`strIngredient${i}`] !== null && !newIngredients.includes(drink[`strIngredient${i}`].toLowerCase().replace(/\s/g, ''))) {
-
                     valid = false;
                     break;
                 } else {
                     valid = true
                 }  
-
             }
             console.log(valid)
             if (valid === true) {

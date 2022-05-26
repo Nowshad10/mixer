@@ -43,7 +43,6 @@ const SearchBar = ({setFilteredData, setIngredientsSelected, ingredientsSelected
     console.log(clickState)
   }
 
-
   const handleDelete = (e) => {
     console.log(e.target.id)
     setIngredientsSelected((prevState) => prevState.filter((prevItem ) => prevItem !== e.target.id))
@@ -85,8 +84,9 @@ console.log(ingredientsSelected)
   </ol>
     
     </div>  
+    
 </div>
   )
 }
 
-export default SearchBar;
+export default SearchBar
