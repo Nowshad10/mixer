@@ -13,7 +13,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const responseToken = await fetch('http://127.0.0.1:8000/api/login/', {
+    const responseToken = await fetch('https://mixer-server.herokuapp.com/api/login/', {
       method: 'POST',
       body: JSON.stringify({username: username, password: password}),
       headers: {'Content-Type': 'application/json'}
@@ -22,7 +22,7 @@ const Login = () => {
     localStorage.setItem('jwt', token.jwt)
 
     if(token.jwt) {
-      const responseAuth = await fetch('http://localhost:8000/api/auth/', {
+      const responseAuth = await fetch('https://mixer-server.herokuapp.com/api/auth/', {
         method: 'POST',
         body: JSON.stringify({ token: token.jwt }),
         headers: {'Content-Type': 'application/json'}
@@ -47,7 +47,7 @@ const Login = () => {
 
   return (
     <>
-        <div className='center'>
+        <div className='center-login'>
           <h1>Login</h1>
           <form onSubmit={handleSubmit}>
 

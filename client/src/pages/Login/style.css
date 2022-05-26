@@ -1,12 +1,12 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(120deg, #e07ec1, #d20651);
+    /* background: linear-gradient(120deg, #e07ec1, #d20651); */
     height: 100vh;
     /* overflow: hidden; */
 }
 
-.center {
+.center-login {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -14,15 +14,16 @@ body {
   width: 400px;
   background: white;
   border-radius: 10px;
+  background: linear-gradient(120deg, #e07ec1, #bf7d95);
 }
 
-.center h1 {
+.center-login h1 {
     text-align: center;
     padding: 0 0 20px 0;
     border-bottom: 1px solid silver;
 }
 
-.center form {
+.center-login form {
     padding: 0 40px;
     box-sizing: border-box;
 }
@@ -47,7 +48,7 @@ form .txt_field {
     position: absolute;
     top: 50%;
     left: 5px;
-    color: #adadad;
+    color: red;
     transform: translateY(-50%);
     font-size: 16px;
     pointer-events: none;
@@ -61,7 +62,7 @@ form .txt_field {
     left: 0;
     width: 0%;
     height: 2px;
-    background: hotpink;
+    background: red;
     transition: 1s;
 }
 

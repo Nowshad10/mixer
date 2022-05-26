@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios';
 import './style.css'
 import ClipLoader from "react-spinners/ClipLoader";
+import DisplayDrinkCard from '../DisplayDrinkCard/DisplayDrinkCard';
 
 function MultiSearch({ingredients, clickState}) {
     console.log(clickState)
@@ -15,6 +16,7 @@ function MultiSearch({ingredients, clickState}) {
 
 function getCombinations(valuesArray) {
     setLoading(true)
+
     let combi = [];
     let temp = [];
     let slent = Math.pow(2, valuesArray.length);
@@ -29,7 +31,9 @@ function getCombinations(valuesArray) {
             combi.push(temp);
         }
     }
+
     combi.sort((a, b) => a.length - b.length); 
+
     combi = combi.filter(x => x.length > 1)
 // Fetch data with combinations array    
     let drinkList = []
@@ -63,11 +67,13 @@ function getCombinations(valuesArray) {
         fullList.forEach(drink => {
             for (let i = 1; i <= 15; i++) {
                 if (drink[`strIngredient${i}`] !== null && !newIngredients.includes(drink[`strIngredient${i}`].toLowerCase().replace(/\s/g, ''))) {
+
                     valid = false;
                     break;
                 } else {
                     valid = true
                 }  
+
             }
             console.log(valid)
             if (valid === true) {
@@ -81,14 +87,16 @@ function getCombinations(valuesArray) {
         newIngredients.length = 0
         console.log(result) 
         console.log(newIngredients)
+
         // Filter result to remove duplicates
         const ids = result.map(x => x.idDrink)
         const filtered = result.filter(({idDrink}, index) => !ids.includes(idDrink, index + 1))
-        originalIngredients = []
         setFiltResult(filtered)
+
         setLoading(false)
+
     }
-        fetchAll(combi) 
+    fetchAll(combi) 
 }
    useEffect(() => {
     getCombinations(originalIngredients);
@@ -111,13 +119,12 @@ function getCombinations(valuesArray) {
         ) : (
             
             filtResult.length !== 0 && filtResult.map(drink => {
-                console.log(drink)
-                const {strDrink, strDrinkThumb} = drink
+             {/*    console.log(drink)
+                 const {strDrink, strDrinkThumb} = drink */}
         
                 return (
                     <>
-                        <h2>{strDrink}</h2>
-                        <img className="multi-search" src={strDrinkThumb} alt={strDrink} />
+                        <DisplayDrinkCard drinks={filtResult}/>
                         
                     </>
                     
@@ -127,7 +134,8 @@ function getCombinations(valuesArray) {
     }
      {filtResult.length !== 0 && <button onClick={clearResults}>Clear</button>}
   </>  
+
   )
 }
 
-export default MultiSearch
+export default MultiSearch;

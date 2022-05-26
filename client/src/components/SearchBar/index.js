@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import './style.css'
 
-const SearchBar = ({setFilteredData, setIngredientsSelected, ingredientsSelected, filteredData, setClickState, clickState}) => {
-  const [ingredients, setIngredients] = useState([])
 
+const SearchBar = ({setFilteredData, setIngredientsSelected, ingredientsSelected, filteredData, setClickState, clickState}) => {
+ 
+  const [ingredients, setIngredients] = useState([])
   const searchWordInput = document.querySelector('#search-word')
 
   const handleFilter = (e) => {
@@ -41,6 +42,7 @@ const SearchBar = ({setFilteredData, setIngredientsSelected, ingredientsSelected
     setClickState((prevState) => !prevState)
     console.log(clickState)
   }
+
 
   const handleDelete = (e) => {
     console.log(e.target.id)
@@ -83,9 +85,8 @@ console.log(ingredientsSelected)
   </ol>
     
     </div>  
-    
 </div>
   )
 }
 
-export default SearchBar
+export default SearchBar;
