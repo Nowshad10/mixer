@@ -3,16 +3,13 @@
     margin: 0;
     padding: 0;
   }
-  
-  body{font-family: verdana;}
-  
+    
   header{
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-
   }
 
   .wrapper{

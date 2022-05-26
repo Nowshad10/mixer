@@ -1,48 +1,49 @@
 .iDrink {
-    /* text-align: center;
-    margin-left: 20px;
-    margin-right: 20px; */
-    width: 90%;
-    max-width: 960px;
-    margin: 5% auto;
-    padding: 30px;
+    width: 90vw;
+    margin: 1em;
+    padding: 1em;
     background: #fff;
+    justify-content: center;
   
 }
 
-.beforeaheader {
-  margin-top: 10px;  
 
+.sd-h1 {
+    margin-left: 0.5em;
 }
 
-.instruction {
-    margin-top: 20px
+h3.sd-h3 {
+    margin: 0em 0em 1em 1em;
 }
 
-.left {
-    color:black
+.instruction-text {
+  margin: 1em;  
 }
 
-.right {
-    color: black;
-}
-
-.drink-text {
-    margin-top: 10px;
+a.login-text {
+    margin: 0em 0em 1em 1em;
 }
 
 .gridIng{
     display: flex;
+    justify-content: space-between;
+    margin: 0em 1em;
 }
 
-.gridIngCol{
-    flex: 50%;
-
-  
+.centerimg{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
-/* .centerimg{
-    width: 20%;
-  margin-left: 40%;
-  margin-right: 70%;
-} */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inst-h3 {
+    margin-left: 1em;
+}
+
+img.sd-img {
+    margin-left: 1em;
+}

@@ -16,7 +16,7 @@ const Home = () => {
                   Welcome to Mixer
                 </h1>
                 <h2 className='wel-mess-2'>
-                  Find out what drinks you can make with ingredients you have at home.
+                  Get cocktail recipes for the ingredients you have at home.
                 </h2>
               </div>
               {/* <div>
