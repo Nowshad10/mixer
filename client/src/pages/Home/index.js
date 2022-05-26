@@ -18,7 +18,7 @@ const Home = () => {
                 <h2 className='wel-mess-2'>
                   Get cocktail recipes for the ingredients you have at home.
                 </h2>
-                <button id='mix-btn'>Get mixing now!</button>
+                <a href='/search'><button id='mix-btn'>Start mixing now!</button></a>
               </div>
               {/* <div>
               <button class="btn-general"><span>Get Drinking!</span></button>

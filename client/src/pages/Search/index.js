@@ -9,8 +9,10 @@ const Search = () => {
       <div >
         <div className='center-flex'>
           <NavigationButton buttonName='Search by name' route='search/name' id='search-button'/> 
-          <NavigationButton buttonName='Search by ingredients' route='search/ingredient' id='search-ing'/><Outlet />
-        </div>
+          <NavigationButton buttonName='Search by ingredients' route='search/ingredient' id='search-ing'/>
+          </div>
+          <Outlet />
+        
       </div>
         
       

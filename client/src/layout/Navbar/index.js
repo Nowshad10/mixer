@@ -43,8 +43,6 @@ const Navbar = () => {
     username = localStorage.getItem('username')
   }
 
-  
-
   if (username === null || username === '' || username === undefined) {
     navigation = (
       <>
@@ -121,11 +119,7 @@ const Navbar = () => {
               {click ? <FaTimes className='nav-cross' /> : <FaBars className='nav-bars'/>}
             </div>
               {navigation}
-              <div className="burger">
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
+              
             
           </div>
         </nav>
