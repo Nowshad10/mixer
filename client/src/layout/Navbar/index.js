@@ -43,6 +43,8 @@ const Navbar = () => {
     username = localStorage.getItem('username')
   }
 
+  
+
   if (username === null || username === '' || username === undefined) {
     navigation = (
       <>
@@ -112,11 +114,11 @@ const Navbar = () => {
         <nav className='navbar'>
           <div className='navbar-container container'>
             <Link to='/' className='navbar-logo' onClick=     {closeMobileMenu}>
-              <FaCocktail className='navbar-icon' />
-              MIXER
+              <FaCocktail className='navbar-icon' icon='fa-bell' shake/>
+             M<p>I</p>XER 
             </Link>
             <div className='menu-icon' onClick={handleClick2}>
-              {click ? <FaTimes /> : <FaBars />}
+              {click ? <FaTimes className='nav-cross' /> : <FaBars className='nav-bars'/>}
             </div>
               {navigation}
             
