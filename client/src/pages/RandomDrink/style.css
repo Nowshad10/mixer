@@ -3,9 +3,12 @@
     align-items: center !important;
 }
 
-.centerbutton {
-    width: 20%;
-  margin-left: 40%;
-  margin-right: 30%;
+.centerbutton > button {
+    /* width: 20%; */
+    width: 1em;
+}
 
+.center {
+  display: grid;
+  justify-content: center;
 }

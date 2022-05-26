@@ -9,7 +9,7 @@ function MultiSearch({ingredients, clickState}) {
     console.log(clickState)
     const [filtResult, setFiltResult] = useState([])
     const [loading, setLoading] = useState(false)
-    let [color, setColor] = useState("#ffffff");
+    let [color, setColor] = useState("red");
 
     let originalIngredients = ingredients;
     console.log(originalIngredients)
@@ -32,6 +32,7 @@ function getCombinations(valuesArray) {
     }
     combi.sort((a, b) => a.length - b.length); 
     combi = combi.filter(x => x.length > 1)
+    console.log(combi)
 // Fetch data with combinations array    
     let drinkList = []
     let clen = combi.length
@@ -70,12 +71,12 @@ function getCombinations(valuesArray) {
                     valid = true
                 }  
             }
-            console.log(valid)
+            //console.log(valid)
             if (valid === true) {
                 result.push(drink)
-                console.log('Drink pushed')
+                //console.log('Drink pushed')
             } else {
-                console.log('Drink not pushed')
+                //console.log('Drink not pushed')
             }
            //valid === true && result.push(drink)
         })
@@ -104,31 +105,33 @@ function getCombinations(valuesArray) {
     }
    
  console.log(filtResult)
- console.log(loading)
+ //console.log(loading)
    
   return (
-    <>
+<>
+    <div className="center">
+        {filtResult.length !== 0 && <button onClick={clearResults}>Clear</button>}
+    </div>
+    
         {loading ?  (
-            <ClipLoader color={color} loading={loading}  size={30} />
+            <div className="center">
+                <ClipLoader color={color} loading={loading}  size={100} />
+            </div>
+            
 
         ) : (
-            
-            filtResult.length !== 0 && filtResult.map(drink => {
-             {/*    console.log(drink)
-                 const {strDrink, strDrinkThumb} = drink */}
+
+        filtResult.length !== 0 && 
+            <div className="grid-container">
+                <DisplayDrinkCard drinks={filtResult} />
+            </div>
         
-                return (
-                    <>
-                        <DisplayDrinkCard drinks={filtResult}/>
-                        
-                    </>
-                    
-                )
-            })         
+        
+                 
         )      
     }
-     {filtResult.length !== 0 && <button onClick={clearResults}>Clear</button>}
-  </>  
+     
+</>  
 
   )
 }

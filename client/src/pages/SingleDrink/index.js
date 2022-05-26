@@ -47,6 +47,7 @@ const SingleDrink = () => {
   const { drinkId } = useParams();
 
   return (
+<div className='center'>
     <div className='iDrink'>
         <div className="button-container">
             <h1 className='sd-h1'>{drinkName}</h1>
@@ -92,6 +93,7 @@ const SingleDrink = () => {
        
         
     </div>
+</div>
   )
 }
 

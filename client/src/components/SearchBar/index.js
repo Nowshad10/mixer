@@ -35,15 +35,14 @@ const SearchBar = ({setFilteredData, setIngredientsSelected, ingredientsSelected
   const handleAddIngredient = () => {
     const dropDown = document.querySelector('#data-result')
     setIngredientsSelected([...ingredientsSelected, searchWordInput.value])
-    //console.log(ingredientsSelected)
     searchWordInput.value = ""
-    filteredData.length = 0;
-
+    //filteredData.length = 0;
   }
 
   const handleClick = () => {
     setClickState((prevState) => !prevState)
     console.log(clickState)
+    filteredData.length = 0;
   }
 
   const handleDelete = (e) => {

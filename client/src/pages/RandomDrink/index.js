@@ -19,11 +19,11 @@ const RandomDrink = () => {
   }
   
   return (
-    <div className='randomDrink'>
+    <div className='center'>
       <div className='randomDrink1'>
         { drinks && <DisplayDrinkCard drinks={drinks}/>}
       </div>
-      <div className='centeritem centerbutton'>
+      <div className='center center-button'>
         <button onClick={handleSubmit}>Another cocktail!</button>
       </div>
     </div>
