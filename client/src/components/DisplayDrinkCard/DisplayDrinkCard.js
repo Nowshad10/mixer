@@ -7,7 +7,7 @@ const DisplayDrinkCard = ({drinks}) => {
   return (
        drinks.map((item) => {
          return (
-           <div className='grid-container'>
+           <div className='grid-container centeritem'>
             <div key={item.idDrink} className='card-container'>
               <Link to={`/drink-info/${item.idDrink}`}>
               <div className='image-container'>
