@@ -6,6 +6,10 @@
     margin: 1em;
 }
 
+#h2-search {
+    color: white;
+}
+
 .search-inputs > input {
     margin: 0.2em 0.2em 0em 0.2em;
     padding: 0.6em;
@@ -70,6 +74,7 @@ form.search-inputs {
     display: flex;
     /* padding: 1em; */
     align-items: center;
+    color: white;
 }
 
 .ing-delete {

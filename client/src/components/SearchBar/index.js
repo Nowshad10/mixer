@@ -33,9 +33,12 @@ const SearchBar = ({setFilteredData, setIngredientsSelected, ingredientsSelected
   }
 
   const handleAddIngredient = () => {
+    const dropDown = document.querySelector('#data-result')
     setIngredientsSelected([...ingredientsSelected, searchWordInput.value])
-    console.log(ingredientsSelected)
+    //console.log(ingredientsSelected)
     searchWordInput.value = ""
+    filteredData.length = 0;
+
   }
 
   const handleClick = () => {
@@ -52,7 +55,7 @@ console.log(ingredientsSelected)
 
   return (
     <div id="search">
-      <h2>Add your ingredients to see what you can mix!</h2>
+      <h2 id='h2-search'>Add your ingredients to see what you can mix!</h2>
       <form className="search-inputs">
           <input id="search-word" type="text" placeholder='Enter ingredient' onInput={handleFilter} autoComplete='off'/>
           <input onClick={handleAddIngredient} type="button" value="add ingredient" id="submit-btn"/>
@@ -76,7 +79,7 @@ console.log(ingredientsSelected)
   {ingredientsSelected.map((ing, key) => {
       return (
         <div className='ing-li'>
-         <p id={ing}className='ing-delete' onClick={handleDelete}>&times;</p> <li key={key}>{ing}</li> 
+         <p id={ing}className='ing-delete' onClick={handleDelete}>&times;</p> <li className='ing-p' key={key}>{ing}</li> 
         </div>
                  
       )
