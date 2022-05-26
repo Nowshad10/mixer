@@ -110,17 +110,22 @@ const Navbar = () => {
   }
   return (
     <>
-      <IconContext.Provider value={{ color: '#fff' }}>
+      <IconContext.Provider value={{ color: '#ef233c' }}>
         <nav className='navbar'>
           <div className='navbar-container container'>
             <Link to='/' className='navbar-logo' onClick=     {closeMobileMenu}>
-              <FaCocktail className='navbar-icon' icon='fa-bell' shake/>
+              <FaCocktail className='navbar-icon' icon='fa-red'/>
              M<p>I</p>XER 
             </Link>
             <div className='menu-icon' onClick={handleClick2}>
               {click ? <FaTimes className='nav-cross' /> : <FaBars className='nav-bars'/>}
             </div>
               {navigation}
+              <div className="burger">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
             
           </div>
         </nav>

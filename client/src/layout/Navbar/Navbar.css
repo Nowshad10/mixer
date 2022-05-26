@@ -1,6 +1,6 @@
 .navbar {
   background-image: linear-gradient(to left,#191f36,rgb(27, 27, 27));
-    height: 80px;
+    height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,6 +41,9 @@
   .navbar-icon {
     margin-right: 0.5rem;
     color: red;
+    /* background-color: red; */
+    --fa-border-color: red;
+    
   }
   
   .nav-menu {
@@ -66,7 +69,7 @@
     display: flex;
     align-items: center;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: 1rem;
     height: 100%;
   }
   
@@ -113,8 +116,9 @@
   
     .nav-links:hover {
       color: #f00946;
-      transform: scale(1.2);
-      transition: all 0.3s ease;
+      /* transform:translateX(-5);
+      /* transform: scale(1.2); */
+     /* transition: all 0.3s ease; */
     }
   
     .nav-item:hover {

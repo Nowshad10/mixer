@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import './style.css'
 
 const DisplayDrinkCard = ({drinks}) => {
-
   return (
        drinks.map((item) => {
+         console.log('drink rendered')
          return (
            <div className='grid-container centeritem'>
             <div key={item.idDrink} className='card-container'>
