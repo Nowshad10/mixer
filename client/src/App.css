@@ -1,3 +1,9 @@
+body{
+  background: linear-gradient(-90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 300% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
 button {
   display: inline-block;
   padding: 10px 20px;
@@ -6,8 +12,8 @@ button {
   text-align: center;
   text-decoration: none;
   outline: none;
-  color: #fff;
-  background-color: #49b84c;
+  color: rgb(10, 0, 0);
+  background-color: #ffffff;
   border: none;
   border-radius: 15px;
   box-shadow: 0 1px #999;
