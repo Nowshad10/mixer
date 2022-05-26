@@ -1,5 +1,7 @@
 .iDrink {
-    margin: 10px 50px 10px 50px;
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .beforeaheader {
@@ -22,3 +24,19 @@
 .drink-text {
     margin-top: 10px;
 }
+
+.gridIng{
+    display: flex;
+}
+
+.gridIngCol{
+    flex: 50%;
+
+  
+}
+
+/* .centerimg{
+    width: 20%;
+  margin-left: 40%;
+  margin-right: 70%;
+} */

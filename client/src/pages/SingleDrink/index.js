@@ -52,30 +52,26 @@ const SingleDrink = () => {
   return (
     <div className='iDrink'>
         <h1>{drinkName}</h1>
-        <div className='grid'>
-            <div>
-                <img src={drinkImage} alt={drinkName} style={{ width:"300px", height:'auto'}}/>
+            <div className='centerimg'>
+                    <img src={drinkImage} alt={drinkName} style={{ width:"300px", height:'auto'}}/>
+                </div>
+                <h3>Ingredients</h3>
                 
-            </div>
-            
-            
-            <div>
-            <h3>Ingredients</h3>
-                <div className='grid beforeaheader'>
-                    { ingredientArr.map((i, idx) => {
-                    return (
+                <div className='gridIng'>
+                    <div className='gridIngCol'>
+                        { ingredientArr.map((i, idx) =>  {return (
                         <p key={idx} className='right'>{i}</p>
                     )
                     })}
-                     { measuresArr.map((i, idx) => {
-                    return (
-                        <p key={idx} className='left'>{i}</p>
-                    )
-                })}
                 </div>
-                
-            </div>
-            <div>
+                <div className='gridIngCol'>
+                        { measuresArr.map((i, idx) => {return (
+                        <p key={idx} className='left'>{i}</p>
+                    )})}
+                </div>
+            
+        </div>
+        <div>
                 <h3 className='instruction'>Instructions</h3>
                 <p className='beforeaheader'>{instructions}</p>
                 { username &&    
@@ -85,9 +81,6 @@ const SingleDrink = () => {
                 <p className='drink-text'>Log in to save drinks</p>
                 }
             </div>
-            
-
-        </div>
        
         
     </div>
