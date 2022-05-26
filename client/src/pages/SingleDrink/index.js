@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import BackButton from '../../components/BackButton';
 import FetchApi from '../../components/FetchDrinks';
 import SaveButton from '../../components/SaveButton';
 import './style.css';
@@ -43,40 +44,53 @@ const SingleDrink = () => {
       })
   }, [])
 
-  
-
-  
-  
   const { drinkId } = useParams();
 
   return (
-    <div>
-        <h1>{drinkName}</h1>
-            <h3>Ingredients</h3>
-        <div className='grid'>
-            { measuresArr.map((i, idx) => {
-                return (
-                    <p key={idx} className='left'>{i}</p>
-                )
-            })}
-            { ingredientArr.map((i, idx) => {
-                return (
-                    <p key={idx} className='right'>{i}</p>
-                )
-            })}
-
+    <div className='iDrink'>
+        <div className="button-container">
+            <h1 className='sd-h1'>{drinkName}</h1>
+            <BackButton />
         </div>
+        
+            <div className='centerimg'>
+                <div className="grid-col">
+                    <img className='sd-img' src={drinkImage} alt={drinkName} style={{ width:"300px", height:'auto'}}/>  
+                </div>
+                <div className="grid-col">
+                    <h3 className='sd-h3'>Ingredients</h3>
+                    <div className='gridIng'>
+                        <div className='gridIngCol'>
+                                { ingredientArr.map((i, idx) =>  {return (
+                                <p key={idx}>{i}</p>
+                            )
+                            })}
+                        </div>
+                        <div className='gridIngCol'>
+                                { measuresArr.map((i, idx) => {return (
+                                <p key={idx} className='measures'>{i}</p>
+                            )})}
+                        </div>         
+                    </div>
+                </div>
+                    
+            </div>
+                
+                
+           
         <div>
-            <h3>Instructions</h3>
-            <p>{instructions}</p>
-        </div>
-        <img src={drinkImage} alt={drinkName} style={{ width:"300px", height:'auto'}}/>
-        { username &&    
-        <SaveButton drinkId={drinkId} drinkName={drinkName} drinkImage={drinkImage} instructions={instructions}/>
-        }
-        { !username &&
-            <p>Log in to save drinks</p>
-        }
+                <h3 className='inst-h3'>Instructions</h3>
+                <p className='instruction-text'>{instructions}</p>
+                { username &&    
+                <SaveButton drinkId={drinkId} drinkName={drinkName} drinkImage={drinkImage} instructions={instructions}/>
+                }
+                { !username &&
+                
+                <a href='/login' className='login-text'>Log in to save drinks</a>
+                }
+            </div>
+       
+        
     </div>
   )
 }

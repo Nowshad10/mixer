@@ -1,4 +1,5 @@
 import React from 'react'
+import './style.css'
 
 const SaveButton = ({drinkId, drinkName, drinkImage, instructions}) => {
   let username = localStorage.getItem('username')
@@ -16,7 +17,7 @@ const SaveButton = ({drinkId, drinkName, drinkImage, instructions}) => {
   
   
   return (
-    <button onClick={handleSubmitDrink}>Save Drink</button>
+    <button className='saveB' onClick={handleSubmitDrink}>Save Drink</button>
   )
 }
 

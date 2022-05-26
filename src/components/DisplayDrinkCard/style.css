@@ -1,0 +1,46 @@
+.card-container {
+    margin-top: 20px;
+    margin-left: 10px;
+
+    width: 300px;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px -5px;
+    transition: 0.5s;
+    animation: ease-in;
+    background-color: rgb(250, 224, 192);
+    
+}
+
+.card-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 15px 0px;
+}
+
+.image-container img {
+    overflow: hidden;
+    height: auto;
+    width: 100%;
+    
+}
+
+.card-content {
+    margin: 1rem;
+    margin-top: 0.5rem;
+    
+}
+
+h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+.card-title {
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.card-container a {
+    text-decoration: none;
+    color: black;
+}
+

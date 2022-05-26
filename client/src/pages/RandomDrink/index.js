@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import DisplayDrinkCard from '../../components/DisplayDrinkCard/DisplayDrinkCard';
+import './style.css'
 
 const RandomDrink = () => {
 
@@ -18,11 +19,13 @@ const RandomDrink = () => {
   }
   
   return (
-    <div>
-      <center>
-      { drinks && <DisplayDrinkCard drinks={drinks}/>}
-      <input type='submit' value='another random cocktail' onClick={handleSubmit}/>
-      </center>
+    <div className='randomDrink'>
+      <div className='randomDrink1'>
+        { drinks && <DisplayDrinkCard drinks={drinks}/>}
+      </div>
+      <div className='centeritem centerbutton'>
+        <button onClick={handleSubmit}>Another cocktail!</button>
+      </div>
     </div>
   )
 }

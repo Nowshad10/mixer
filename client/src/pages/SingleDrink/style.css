@@ -1,3 +1,49 @@
-.grid {
-    columns: 2;
+.iDrink {
+    width: 90vw;
+    margin: 1em;
+    padding: 1em;
+    background: #fff;
+    justify-content: center;
+  
+}
+
+
+.sd-h1 {
+    margin-left: 0.5em;
+}
+
+h3.sd-h3 {
+    margin: 0em 0em 1em 1em;
+}
+
+.instruction-text {
+  margin: 1em;  
+}
+
+a.login-text {
+    margin: 0em 0em 1em 1em;
+}
+
+.gridIng{
+    display: flex;
+    justify-content: space-between;
+    margin: 0em 1em;
+}
+
+.centerimg{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.inst-h3 {
+    margin-left: 1em;
+}
+
+img.sd-img {
+    margin-left: 1em;
 }

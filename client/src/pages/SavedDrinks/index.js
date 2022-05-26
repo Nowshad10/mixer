@@ -81,8 +81,9 @@ const SavedDrinks = () => {
             <input type='submit' value='Save Drink'/>
         </form> */}
 
-        { data && <UsersDrinks drinks={data}/> }
-        
+        <div className='grid-container'> 
+            { data && <UsersDrinks drinks={data}/> }
+        </div>
     </>
   )
 }
