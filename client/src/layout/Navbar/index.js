@@ -113,7 +113,7 @@ const Navbar = () => {
           <div className='navbar-container container'>
             <Link to='/' className='navbar-logo' onClick=     {closeMobileMenu}>
               <FaCocktail className='navbar-icon' icon='fa-red'/>
-             M<p>I</p>XER 
+              M<p style={{ color: '#F00946' }}>i</p>XER
             </Link>
             <div className='menu-icon' onClick={handleClick2}>
               {click ? <FaTimes className='nav-cross' /> : <FaBars className='nav-bars'/>}

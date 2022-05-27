@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import DisplayDrinkCard from '../../components/DisplayDrinkCard/DisplayDrinkCard';
+import './style.css'
 
 const SearchByName = () => {
 
@@ -20,14 +21,15 @@ const SearchByName = () => {
 
   return (
       <>
-    <form onSubmit={handleNameSearch}>
-        <label htmlFor='cocktail-name'>Drink Name</label>
-        <input type='text' onChange={(e) => setNameSelected(e.target.value)} name='cocktailName' id='cocktailName'/>
+      <center><form onSubmit={handleNameSearch}>
+        <label id="drink-name-label" className='text-white' htmlFor='cocktail-name' >Drink Name</label>
+        <input type='text' onChange={(e) => setNameSelected(e.target.value)} name='cocktailName' id='cocktailName' placeholder='i.e. Martini'/>
         <button type='submit'>Search for drink</button>
     </form>
     <div className='grid-container'>
       { drinks && <DisplayDrinkCard drinks={drinks} /> }
-    </div>
+    </div></center>
+    
     
     </>
   )

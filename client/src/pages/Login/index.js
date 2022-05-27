@@ -48,24 +48,24 @@ const Login = () => {
   return (
     <>
         <div className='center-login'>
-          <h1>Login</h1>
+          <h1 className='logintitle'>Login</h1>
           <form onSubmit={handleSubmit}>
 
             <div className='txt_field'>
-              <input id='username' onChange={(e) => setUsername(e.target.value)} type='text' name='username' required/>
+              <input onChange={(e) => setUsername(e.target.value)} type='text' name='username' required/>
               <span></span>
               <label htmlFor='username'>Username</label>
             </div>
 
             <div className='txt_field'>
-              <input id='password' onChange={(e) => setPassword(e.target.value)} type='password' name='password' required/>
+              <input onChange={(e) => setPassword(e.target.value)} type='password' name='password' required/>
               <span></span>
               <label htmlFor='password'>Password</label>
             </div>
 
-            <input id='login-btn' type='submit' value='Login'></input>
+            <input className='login-btn' type='submit' value='Login'></input>
             <div className='signup_link'>
-                Not registered? <a href='/register'>Sign Up</a>
+                Not registered? <a href='/register'> Sign Up Here</a>
             </div>
 
           </form>

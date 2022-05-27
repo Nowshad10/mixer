@@ -45,8 +45,6 @@
     justify-content: center;
   }
 
- 
-
   @keyframes hoverShake {
     0% {transform: skew(0deg,0deg);}
     25% {transform: skew(5deg, 5deg);}
@@ -123,4 +121,7 @@
     justify-content: center;
   }
 
- 
+ .center-button {
+   display: flex;
+   justify-content: center;
+ }

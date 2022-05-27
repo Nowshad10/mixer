@@ -12,7 +12,6 @@ function MultiSearch({ingredients, clickState}) {
     let [color, setColor] = useState("red");
 
     let originalIngredients = ingredients;
-    console.log(originalIngredients)
 
 function getCombinations(valuesArray) {
     setLoading(true)
@@ -31,9 +30,7 @@ function getCombinations(valuesArray) {
         }
     }
     combi.sort((a, b) => a.length - b.length); 
-    combi = combi.filter(x => x.length > 1)
-    console.log(combi)
-// Fetch data with combinations array    
+    combi = combi.filter(x => x.length > 1)  
     let drinkList = []
     let clen = combi.length
 
@@ -43,25 +40,20 @@ function getCombinations(valuesArray) {
             let data = possible.data.drinks
             typeof(data) !== 'string' && drinkList.push(data)
         }
-        //flatten array of arrays into one.
         const concatList = drinkList.flat(1)
         let fullList = []
         let conLen = concatList.length
-        //lookup each drink into new array with full details
         for (let i = 0; i < conLen; i++) {
             let res = await axios.get(`https://www.thecocktaildb.com/api/json/v2/9973533/lookup.php?i=${concatList[i].idDrink}`)
             let data = res.data.drinks
             fullList.push(data)
         }
-        //Flatten array of arrays into single array
         fullList = fullList.flat(1)
-        console.log(fullList)
-        
+      
         fullList.length > 0 && originalIngredients.push('Salt', 'Olive', 'Sugar', 'Water', 'Ice', 'Lemon peel', 'Orange peel', 'Orange spiral')
         let result = []
         let valid;
         let newIngredients = originalIngredients.map(x => x.toLowerCase().replace(/\s/g, ''))
-        console.log(newIngredients)
         fullList.forEach(drink => {
             for (let i = 1; i <= 15; i++) {
                 if (drink[`strIngredient${i}`] !== null && !newIngredients.includes(drink[`strIngredient${i}`].toLowerCase().replace(/\s/g, ''))) {
@@ -70,24 +62,16 @@ function getCombinations(valuesArray) {
                 } else {
                     valid = true
                 }  
-            }
-           
-            if (valid === true) {
-                result.push(drink)
-            } else {
-            }         
+            }    
+            valid === true && result.push(drink)       
         })
         newIngredients.length = 0
         console.log(result) 
         console.log(newIngredients)
-
-        // Filter result to remove duplicates
         const ids = result.map(x => x.idDrink)
         const filtered = result.filter(({idDrink}, index) => !ids.includes(idDrink, index + 1))
         setFiltResult(filtered)
-
         setLoading(false)
-
     }
     fetchAll(combi) 
 }
@@ -101,9 +85,6 @@ function getCombinations(valuesArray) {
         setFiltResult([])   
     }
    
- console.log(filtResult)
- //console.log(loading)
-   
   return (
 <>
     <div className="center">
@@ -115,16 +96,13 @@ function getCombinations(valuesArray) {
                 <ClipLoader color={color} loading={loading}  size={100} />
             </div>
             
-
         ) : (
 
         filtResult.length !== 0 && 
             <div className="grid-container">
                 <DisplayDrinkCard drinks={filtResult} />
             </div>
-        
-        
-                 
+                         
         )      
     }
      
