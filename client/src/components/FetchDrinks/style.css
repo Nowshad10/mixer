@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+.drink-card  {
+  display: flex;
+  justify-content: center;
+}
+
+.drink-info {
+    margin: 1em;
+    text-align: left;
+    max-width: 25%;
+}
+
+
+
+img.drink-thumb {
+    max-width: 30vw;
+}
+
+
+
+
+
