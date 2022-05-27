@@ -1,0 +1,11 @@
+.text-white{
+    color: white;
+}
+
+#drink-name-label {
+    padding-right: 1em;
+}
+
+#cocktailName {
+    padding: 0.7em;
+}

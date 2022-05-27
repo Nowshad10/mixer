@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './style.css'
 
 const Register = () => {
 
@@ -26,18 +27,35 @@ const Register = () => {
   }
   return (
     <>
-        <form onSubmit={handleSubmit}>
+      <div className='center-login'>
+          <h1 className='logintitle'>Register</h1>
+          <form onSubmit={handleSubmit}>
+
+          <div className='txt_field'>
+            <input onChange={(e) => setUsername(e.target.value)} type="text" name="username" required/>
+            <span></span>
             <label htmlFor='username'>Enter Username</label>
-            <input type="text" id="username" name="username" onChange={(e) => setUsername(e.target.value)}></input>
+          </div>
 
+          <div className='txt_field'>
+            <input onChange={(e) => setPassword(e.target.value)} type="password" name='password'required/>
+            <span></span>
             <label htmlFor='password'>Enter Password</label>
-            <input type="password" id='password' name='password' onChange={(e) => setPassword(e.target.value)}></input>
+          </div>
 
+          <div className='txt_field'>
+            <input onChange={(e) => setConfirmPass(e.target.value)} type="password" name='confirm-password' required/>
+            <span></span>
             <label htmlFor='confirm-password'>Confirm Password</label>
-            <input type="password" id='confirm-password' name='confirm-password' onChange={(e) => setConfirmPass(e.target.value)}></input>
-
-            <input type="submit" value="sign up!"></input>
+          </div>
+          
+            <input className='login-btn' type="submit" value="Sign up"></input>
+            <div className='signup_link'>
+                Have an account? <a href='/login'> Login</a>
+            </div>
+          
         </form>
+      </div>
     </>
   )
 }
