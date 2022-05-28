@@ -1,0 +1,3 @@
+[submodule "mixer-server"]
+	path = mixer-server
+	url = https://github.com/Nowshad10/mixer-server
