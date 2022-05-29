@@ -9,8 +9,8 @@
 ## Project Description
 This is a group project where the requirements were for us to create anything we wanted, provided we used a Python backend, and incorporated some form of authorisation and authentication. We created Mixer - a website where you can find delicious cocktails to make with the ingredients you have lying around at home!
 
-The client side is deployed at: https://mixer-cocktail.netlify.app/
-The server side is deployed at: https://mixer-server.herokuapp.com/
+- The client side is deployed at: https://mixer-cocktail.netlify.app/
+- The server side is deployed at: https://mixer-server.herokuapp.com/
 
 ## Installation & Usage
 - Fork/git clone the repo.
