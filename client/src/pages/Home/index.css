@@ -29,7 +29,7 @@
     z-index: -1;
 
   } */
-  video {  
+  #video {  
     width: 100vw;
     height: 100vh;
     object-fit: cover;
@@ -52,7 +52,7 @@
     100% {transform: skew(0deg,0deg);}
   }
 
-  #mix-btn {
+#mix-btn {
     margin-top: 5em;
     width: 100%;
     background-color: rgba(239, 35, 60, 1);
@@ -60,11 +60,11 @@
     border-radius: 10px;
     color: whitesmoke;
     
-  }
+}
 
-  #mix-btn:hover {
+#mix-btn:hover {
     animation: hoverShake 0.20s linear 3;
-  }
+}
 
   .home-text-inner {
     display: flex;

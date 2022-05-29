@@ -1,13 +1,18 @@
 import React from 'react';
 import './index.css';
+import { useNavigate } from 'react-router-dom';
+import homeBackground from './bluecocktail.png';
 
 
 const Home = () => {
+  const navigate = useNavigate();
 
   return (
         <header className='wrapper'>
           <div className='video-wrapper'> 
-            <video id='video' src='/Videos/homeVideo.mp4' autoPlay loop muted></video>
+            {/* <video id='video' src='/Videos/homeVideo.mp4' autoPlay loop muted></video> */}
+            {/* video files had to be deleted as netlify couldnt handle deployment with it */}
+            <img id='video' src={homeBackground} alt='cocktails'/>
           </div>
           <div className='overlay'></div>
             <div className='homeText'>
@@ -19,12 +24,9 @@ const Home = () => {
                   Get cocktail recipes for the ingredients you have at home.
                 </h2>
                 <div className="center-button">
-                <a href='/search'><button id='mix-btn'>Start mixing now!</button></a>
+                  <button id='mix-btn' onClick={() => navigate('/search')}>Start mixing now!</button>
                 </div>
               </div>
-              {/* <div>
-              <button class="btn-general"><span>Get Drinking!</span></button>
-              </div> */}
             </div>
         </header>
   )
