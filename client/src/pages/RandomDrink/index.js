@@ -15,7 +15,12 @@ const RandomDrink = () => {
   }, [])
 
   const handleSubmit = () => {
-    window.location.reload()
+    fetch(`https://www.thecocktaildb.com/api/json/v2/9973533/random.php`)
+    .then(resp => resp.json())
+    .then(data => {
+      setDrinks(data.drinks)
+    })
+    // window.location.reload()
   }
   
   return (

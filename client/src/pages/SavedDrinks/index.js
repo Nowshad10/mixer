@@ -4,10 +4,6 @@ import UsersDrinks from '../../components/UsersDrinks';
 
 const SavedDrinks = () => {
 
-    const [id, setId] = useState('');
-    const [drinkName, setDrinkName] = useState('');
-    const [drinkImage, setDrinkImage] = useState('');
-    const [drinkInstructions, setDrinkInstructions] = useState('');
     const [data, setData] = useState(null);
     
 
@@ -37,19 +33,6 @@ const SavedDrinks = () => {
         )
         ()
     }, [])
-    
-//   const handleSubmitDrink = async (e) => {
-//       e.preventDefault()
-//       let username = localStorage.getItem('username')
-//       const options = {
-//           method: 'POST',
-//           body: JSON.stringify({id_drink: id, username: username, drink_name: drinkName, drink_image: drinkImage, drink_instructions: drinkInstructions}),
-//           headers: {'Content-Type': 'application/json'}, withCredentials: true
-//       }
-//       await fetch(`http://localhost:8000/drinks/${username}/`, options)
-//       e.target.drinkId.value = ""
-      
-//   }
 
   useEffect(() => {
     let username = localStorage.getItem('username')
@@ -63,24 +46,6 @@ const SavedDrinks = () => {
     
   return (
     <>
-        {/* <form onSubmit={handleSubmitDrink}>
-            <label htmlFor='drinkId'>Drink ID</label>
-            <input name='drinkId' type='number' id='drinkId' onChange={(e) => setId(e.target.value)}/>
-
-            <label htmlFor='drinkName'>Drink Name</label>
-            <input name='drinkName' type='text' id='drinkName' onChange={(e) => setDrinkName(e.target.value)}/>
-
-            <label htmlFor='drinkImage'>Drink Image</label>
-            <input name='drinkImage' type='text' id='drinkImage' onChange={(e) => setDrinkImage(e.target.value)}/>
-
-            <label htmlFor='drinkInstructions'>Drink Instructions</label>
-            <input name='drinkInstructions' type='text' id='drinkInstructions' onChange={(e) => setDrinkInstructions(e.target.value)}/>
-
-
-
-            <input type='submit' value='Save Drink'/>
-        </form> */}
-
         <div className='grid-container'> 
             { data && <UsersDrinks drinks={data}/> }
         </div>
