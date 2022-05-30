@@ -29,6 +29,7 @@ This is a group project where the requirements were for us to create anything we
 - Python
 - React
 - Redux
+- Django
 - HTML/CSS
 - SQLite
 - PostgreSQL (for Heroku deployment)
